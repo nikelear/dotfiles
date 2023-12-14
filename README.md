@@ -1,1 +1,1 @@
-# ditfiles
+# dotfiles
