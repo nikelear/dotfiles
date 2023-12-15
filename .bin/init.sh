@@ -10,7 +10,6 @@ if [[ "$HOME" != "$dotdir" ]]; then
     filename=$(basename "${f}")
     [[ "${filename}" == ".git" ]] && continue
     [[ "${filename}" == ".bin" ]] && continue
-    [[ "${filename}" == ".bin.local" ]] && continue
     [[ "${filename}" == ".gitignore" ]] && continue
 
     # delete link
