@@ -8,6 +8,7 @@ dotdir=$(dirname "${script_dir}")
 if [[ "$HOME" != "$dotdir" ]]; then
   for f in "${dotdir}"/.??*; do
     filename=$(basename "${f}")
+    [[ "${filename}" == ".git" ]] && continue
     [[ "${filename}" == ".bin" ]] && continue
     [[ "${filename}" == ".bin.local" ]] && continue
     [[ "${filename}" == ".gitignore" ]] && continue
