@@ -12,10 +12,11 @@
 !/.zshrc
 !/.zshenv
 !/.zsh/
+!/.zsh/dircolors
 !/.zsh/rc/
 !/.zsh/rc/**
 
 !/README.md
-!/LICENSE
+!.gitconfig
 !.gitignore
 !.gitkeep
