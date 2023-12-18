@@ -1,0 +1,44 @@
+
+
+[battery]
+full_symbol = '🔋 '
+charging_symbol = '⚡️ '
+discharging_symbol = '💀 '
+
+[[battery.display]] # 'bold yellow' style and 💦 symbol when capacity is between 10% and 30%
+threshold = 30
+style = 'bold yellow'
+discharging_symbol = '💦'
+
+[username]
+style_user = 'white bold'
+style_root = 'black bold'
+format = 'user: [$user]($style) '
+disabled = false
+show_always = true
+
+[time]
+disabled = false
+time_format = '%R'
+
+
+[hostname]
+ssh_only = false
+format = '[$ssh_symbol](bold blue) on [$hostname](bold red) '
+trim_at = '.companyname.com'
+disabled = false
+
+[shell]
+unknown_indicator = 'mystery shell'
+style = 'cyan bold'
+disabled = false
+
+[directory]
+truncation_length = 100
+truncate_to_repo = false
+
+[memory_usage]
+disabled = false
+show_swap = true
+threshold = -1
+format = 'via $symbol [${ram_pct}( | ${swap})]($style) '
