@@ -122,4 +122,10 @@ export ftp_proxy=${http_proxy}
 export HTTP_PROXY=${http_proxy}
 export HTTPS_PROXY=${http_proxy}
 export FTP_PROXY=${http_proxy}
-. "$HOME/.cargo/env"
+
+if [[ -d $HOME/.cargo/env]]; then
+    . "$HOME/.cargo/env"
+    if [[ -e $HOME/.cargo/env/starship]]; then
+        eval "$(starship init bash)"
+    fi
+fi
