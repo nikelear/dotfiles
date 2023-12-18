@@ -39,6 +39,5 @@ truncate_to_repo = false
 
 [memory_usage]
 disabled = false
-show_swap = true
 threshold = -1
 format = 'via $symbol [${ram_pct}( | ${swap})]($style) '
