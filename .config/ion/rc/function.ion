@@ -1,0 +1,7 @@
+fn ggr w:[str]
+  firefox.exe "https://www.google.com/search?q="$join(@w '+')
+end
+
+fn wiki w:str
+  firefox.exe "https://ja.wikipedia.org/wiki/"$w
+end

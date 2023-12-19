@@ -10,4 +10,7 @@ end
 if test -d ${HOME}/.cargo/bin && ! contains $PATH ${HOME}/.cargo/bin
   export PATH="$HOME/.cargo/bin:$PATH"
 end
-echo env
+
+if ! contains $PATH ${HOME}/.config/ion/bin
+  export PATH="$PATH:${HOME}/.config/ion/bin"
+end

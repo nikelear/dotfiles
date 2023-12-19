@@ -1,9 +1,6 @@
-let HD=$HOME/.config/ion/rc
-if test -d $HD && test -r $HD && test -x $HD
-  for file in $HD/**/*.ion
-    source $file
-  end
-end
+source ~/.config/ion/rc/alias.ion
+source ~/.config/ion/rc/function.ion
+source ~/.config/ion/rc/environment.ion
 
 if test -e $HOME/.cargo/bin/starship && contains $PATH ${HOME}/.cargo/bin
   eval $(starship init ion)
