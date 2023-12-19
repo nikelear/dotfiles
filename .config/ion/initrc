@@ -1,10 +1,7 @@
-
 let HD=$HOME/.config/ion/rc
-if test -d $HD and -r $HD and -x $HD
-  for file in @split($(find $HD -type f -name "*.ion") \n)
-      if test -r $file
-        source $file
-      end
+if test -d $HD && test -r $HD && test -x $HD
+  for file in $HD/**/*.ion
+    source $file
   end
 end
 
