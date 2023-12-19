@@ -13,7 +13,7 @@ discharging_symbol = '💦'
 [username]
 style_user = 'white bold'
 style_root = 'black bold'
-format = 'user: [$user]($style) '
+format = '[$user]($style) '
 disabled = false
 show_always = true
 
@@ -24,7 +24,7 @@ time_format = '%R'
 
 [hostname]
 ssh_only = false
-format = '[$ssh_symbol](bold blue) on [$hostname](bold red) '
+format = '[$ssh_symbol](bold blue) [$hostname](bold red) '
 trim_at = '.companyname.com'
 disabled = false
 
@@ -44,4 +44,4 @@ truncate_to_repo = false
 [memory_usage]
 disabled = false
 threshold = -1
-format = 'via $symbol [${ram_pct}( | ${swap})]($style) '
+format = '$symbol [${ram_pct}( | ${swap})]($style) '
