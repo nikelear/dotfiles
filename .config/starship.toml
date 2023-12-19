@@ -29,6 +29,10 @@ trim_at = '.companyname.com'
 disabled = false
 
 [shell]
+powershell_indicator = '💪'
+bash_indicator = '👟'
+zsh_indicator = '💤'
+ion_indicator = '🧪'
 unknown_indicator = 'mystery shell'
 style = 'cyan bold'
 disabled = false
