@@ -1,0 +1,14 @@
+#!/usr/bin/env ion
+
+if ! test $len(@args) -eq 3
+    echo $len(@args)
+    exit
+end
+
+# なんか一個目の引数は自分自身らしいワロタ
+let arg1=@args[0]
+let arg2=@args[1]
+let arg3=@args[2]
+echo $arg1
+echo $arg2
+echo $arg3
