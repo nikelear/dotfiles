@@ -1,3 +1,6 @@
+# zmodload zsh/zprof && zprof
+
+export RSYNC_RSH=ssh
 
 export ZDOTDIR="$HOME/.config/zsh"
 
@@ -7,4 +10,13 @@ if [[ -e /etc/environment ]]; then
      export "$line"
    fi
  done < /etc/environment
+fi
+
+
+if [[ ":$PATH:" != *":$HOME/.cargo/bin:"* ]]; then
+  export PATH="$HOME/.cargo/bin:$PATH"
+fi
+
+if [[ ":$PATH:" != *":$HOME/.config/bin:"* ]]; then
+  export PATH="$HOME/.config/bin:$PATH"
 fi
