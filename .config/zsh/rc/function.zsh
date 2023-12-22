@@ -1,9 +1,10 @@
-function ggr () {
+
+# search
+ggr () {
   firefox "https://www.google.com/search?q=${*// /+}"
 }
 
-
-function wiki () {
+wiki () {
   if [ $# -ne 1 ]; then
     echo "Function wiki requires exactly one argument."
     return
@@ -11,6 +12,7 @@ function wiki () {
   firefox "https://ja.wikipedia.org/wiki/"$1
 }
 
+# translate
 te () {
   trans -b :en "$*"
 }
