@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [ -e /etc/environment ]; then
+  set -a
+  . /etc/environment
+  set +a
+fi

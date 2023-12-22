@@ -1,7 +1,0 @@
-source ~/.config/ion/rc/alias.ion
-source ~/.config/ion/rc/function.ion
-source ~/.config/ion/rc/environment.ion
-
-if test -e $HOME/.cargo/bin/starship
-  eval $(starship init ion)
-end

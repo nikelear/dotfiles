@@ -29,10 +29,6 @@ alias gc='git checkout'
 alias gb='git branch'
 alias gl='git log --oneline --graph --decorate'
 
-# translate
-alias te='trans -b :en'
-alias tj='trans -b :ja'
-
 # settings
 alias initrc='vim ~/.config/initrc'
 alias vimrc='vim ~/.vimrc'
