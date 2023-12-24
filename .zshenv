@@ -1,4 +1,6 @@
-# zmodload zsh/zprof && zprof
+zmodload zsh/zprof && zprof
+
+export EDITOR=vim
 
 export RSYNC_RSH=ssh
 

@@ -1,5 +1,4 @@
 # エディタをvimに設定
-export EDITOR=vim
 
 # cdした際のディレクトリをディレクトリスタックへ自動追加
 setopt auto_pushd
@@ -57,8 +56,12 @@ umask 022
 ulimit -c 0
 
 # 自動補完を有効にする
-autoload -Uz compinit
-compinit
+# compdir="${HOME}/.local/share/sheldon/repos/github.com/zsh-users/zsh-completions/src"
+# if [ -d $compdir ]; then
+#     fpath=($compdir $fpath)
+# fi
+# autoload -Uz compinit
+# compinit
 
 # 単語の入力途中でもTab補完を有効化
 setopt complete_in_word
