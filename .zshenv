@@ -1,4 +1,4 @@
-zmodload zsh/zprof && zprof
+# zmodload zsh/zprof
 
 export EDITOR=vim
 
