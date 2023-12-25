@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
 dfdir="${HOME}/dotfiles"
 bkup="${HOME}/dot-evacuation"
@@ -15,9 +15,11 @@ for file in $(find "${dfdir}" -maxdepth 1 -name ".*"); do
             echo "make bkup"
             mkdir -p "${bkup}"
             mv "${HOME}/${filename}" "${bkup}/${filename}"
+        else
+            unlink "${HOME}/${filename}"
         fi
-    else
-        ln -snf "${file}" "${HOME}/${filename}"
     fi
+
+    ln -snf "${file}" "${HOME}/${filename}"
 
 done
