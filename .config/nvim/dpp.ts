@@ -2,8 +2,9 @@ import {
   BaseConfig,
   ContextBuilder,
   Dpp,
+  Plugin,
 } from "https://deno.land/x/dpp_vim@v0.0.9/types.ts";
-import { Denops } from "https://deno.land/x/dpp_vim@v0.0.9/deps.ts";
+import { Denops, fn } from "https://deno.land/x/dpp_vim@v0.0.9/deps.ts";
 
 export class Config extends BaseConfig {
   override async config(args: {
@@ -15,16 +16,98 @@ export class Config extends BaseConfig {
     plugins: Plugin[];
     stateLines: string[];
   }> {
-    // 最小構成では特別なグローバル設定は必要ありません。
-    // args.contextBuilder.setGlobal({ ... });
+    args.contextBuilder.setGlobal({
+      protocols: ["git"],
+    });
 
-    // ここで通常はプラグインの設定を読み込むが、最小構成では省略する。
-    // const [context, options] = await args.contextBuilder.get(args.denops);
+    type Toml = {
+      hooks_file?: string;
+      ftplugins?: Record<string, string>;
+      plugins?: Plugin[];
+    };
 
-    // プラグインは読み込まないため、空の配列を返す。
+    type LazyMakeStateResult = {
+      plugins: Plugin[];
+      stateLines: string[];
+    };
+
+    const [context, options] = await args.contextBuilder.get(args.denops);
+    const dotfilesDir = "~/.config/nvim/";
+
+    const tomls: Toml[] = [];
+    tomls.push(
+      await args.dpp.extAction(
+        args.denops,
+        context,
+        options,
+        "toml",
+        "load",
+        {
+          path: await fn.expand(args.denops, dotfilesDir + "dpp.toml"),
+          options: {
+            lazy: false,
+          },
+        },
+      ) as Toml,
+    );
+
+    tomls.push(
+      await args.dpp.extAction(
+        args.denops,
+        context,
+        options,
+        "toml",
+        "load",
+        {
+          path: await fn.expand(args.denops, dotfilesDir + "dpp_lazy.toml"),
+          options: {
+            lazy: true,
+          },
+        },
+      ) as Toml,
+    );
+
+    const recordPlugins: Record<string, Plugin> = {};
+    const ftplugins: Record<string, string> = {};
+    const hooksFiles: string[] = [];
+
+    tomls.forEach((toml) => {
+
+      for (const plugin of toml.plugins) {
+        recordPlugins[plugin.name] = plugin;
+      }
+
+      if (toml.ftplugins) {
+        for (const filetype of Object.keys(toml.ftplugins)) {
+          if (ftplugins[filetype]) {
+            ftplugins[filetype] += `\n${toml.ftplugins[filetype]}`;
+          } else {
+            ftplugins[filetype] = toml.ftplugins[filetype];
+          }
+        }
+      }
+
+      if (toml.hooks_file) {
+        hooksFiles.push(toml.hooks_file);
+      }
+    });
+
+    const lazyResult = await args.dpp.extAction(
+      args.denops,
+      context,
+      options,
+      "lazy",
+      "makeState",
+      {
+        plugins: Object.values(recordPlugins),
+      },
+    ) as LazyMakeStateResult;
+
+    // console.log(lazyResult);
+
     return {
-      plugins: [],
-      stateLines: [],
+      plugins: lazyResult.plugins,
+      stateLines: lazyResult.stateLines,
     };
   }
 }
