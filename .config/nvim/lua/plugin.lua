@@ -1,30 +1,88 @@
-local dpp_src = "$HOME/.cache/dpp/repos/github.com/Shougo/dpp.vim"
-vim.opt.runtimepath:prepend(dpp_src) 
-
--- プラグイン内のLuaモジュールを読み込むため、先にruntimepathに追加する必要があります。
-local dpp = require("dpp")
-
-local ext_toml = "$HOME/.cache/dpp/repos/github.com/Shougo/dpp-ext-toml"
-local ext_lazy = "$HOME/.cache/dpp/repos/github.com/Shougo/dpp-ext-lazy"
-local ext_installer = "$HOME/.cache/dpp/repos/github.com/Shougo/dpp-ext-installer"
-local ext_git = "$HOME/.cache/dpp/repos/github.com/Shougo/dpp-protocol-git"
-vim.opt.runtimepath:append(ext_toml)
-vim.opt.runtimepath:append(ext_git)
-vim.opt.runtimepath:append(ext_lazy)
-vim.opt.runtimepath:append(ext_installer)
-
-local dpp_base = "$HOME/.cache/dpp/"
-if dpp.load_state(dpp_base) then
-	local denops_src = "$HOME/.cache/dpp/repos/github.com/vim-denops/denops.vim"
-  	vim.opt.runtimepath:prepend(denops_src)
-
-  	vim.api.nvim_create_autocmd("User", {
-	  	pattern = "DenopsReady",
-  	callback = function ()
-		vim.notify("vim load_state is failed")
-
-		local dpp_config = "$HOME/.config/nvim/dpp.ts"
-  		dpp.make_state(dpp_base, dpp_config)
-  	end
-  })
+-- boot strap lazy.nvim
+local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system {
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable', -- latest stable release
+    lazypath,
+  }
 end
+vim.opt.rtp:prepend(lazypath)
+
+require('lazy').setup({
+  {
+    -- pairs
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter',
+    config = function()
+    require('nvim-autopairs').setup()
+    end
+  },
+
+  {
+    -- jud filetype speedup
+    'nathom/filetype.nvim'
+  },
+
+  {
+    -- view keymap
+    'folke/which-key.nvim',
+    opts = {}
+  },
+
+  {
+    -- Highlight, edit, and navigate code
+    'nvim-treesitter/nvim-treesitter',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+    },
+    build = ':TSUpdate',
+  },
+
+
+  {
+    -- auto judge indent
+    'tpope/vim-sleuth',
+  },
+
+  {
+    -- view indent
+    "shellRaining/hlchunk.nvim",
+    event = { "UIEnter" },
+    config = function()
+      require("hlchunk").setup({
+       chunk = {
+          chars = {
+            horizontal_line = "─",
+            vertical_line = "│",
+            left_top = "╭",
+            left_bottom = "╰",
+            right_arrow = "→",
+          },
+          style = "#806d9c",
+      },     
+        })
+    end
+  },
+
+  {
+    -- view colorcode
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup()
+    end
+  },
+  
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("gitsigns").setup(
+        
+      )
+    end
+  }
+}, {})
+
