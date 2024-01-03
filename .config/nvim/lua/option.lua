@@ -11,9 +11,11 @@ vim.o.hlsearch = false
 vim.o.mouse = 'a'
 -- share clipboard
 vim.o.clipboard = 'unnamedplus'
--- keep indent when break
+
 -- vim.o.autoindent = true
 -- vim.o.smartindent = true
+
+-- keep indent when break
 vim.o.breakindent = true
 -- save history
 vim.o.undofile = true
@@ -27,5 +29,8 @@ vim.o.timeoutlen = 300
 vim.o.completeopt = 'menuone,noselect'
 -- terminal 256 colors
 vim.o.termguicolors = true
+
+-- vim.o.display = 'lastline'
+-- vim.o.pumheight = 10
 
 

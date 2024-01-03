@@ -16,10 +16,9 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open float
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 -- comment.nvim
--- noremap = true, silent = true
-vim.api.nvim_set_keymap('n', '<C-/>', 'gcc', {})
-vim.api.nvim_set_keymap('v', '<C-/>', 'gc', {})
-vim.api.nvim_set_keymap('i','<C-/>',[[@p@<Esc>:normal gcc<CR>:s/@p@//g<CR>A]],{ silent = true })
+vim.api.nvim_set_keymap('n', '<C-/>', 'gcc', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<C-/>', 'gc', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i','<C-/>',[[@p@<Esc>:normal gcc<CR>:s/@p@//g<CR>A]],{ noremap = true, silent = true })
 
 
 -- -- telescope keymap
