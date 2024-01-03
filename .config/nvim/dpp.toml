@@ -1,8 +1,0 @@
-[[plugins]]
-repo = 'leico/autodate.vim'
-
-[[plugins]]
-repo = 'vim-denops/denops.vim'
-
-[[plugins]]
-repo = 'Shougo/dpp.vim'

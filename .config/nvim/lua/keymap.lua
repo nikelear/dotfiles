@@ -15,6 +15,13 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
+-- comment.nvim
+-- noremap = true, silent = true
+vim.api.nvim_set_keymap('n', '<C-/>', 'gcc', {})
+vim.api.nvim_set_keymap('v', '<C-/>', 'gc', {})
+vim.api.nvim_set_keymap('i','<C-/>',[[@p@<Esc>:normal gcc<CR>:s/@p@//g<CR>A]],{ silent = true })
+
+
 -- -- telescope keymap
 -- -- See `:help telescope.builtin`
 -- vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })

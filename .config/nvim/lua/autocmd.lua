@@ -1,13 +1,3 @@
--- hilight yank point
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = '*',
-})
-
 -- get git root
 local function find_git_root()
   -- Use the current buffer's path as the starting point for the git search
@@ -40,3 +30,19 @@ local function live_grep_git_root()
 end
 
 vim.api.nvim_create_user_command('LiveGrepGitRoot', live_grep_git_root, {})
+
+-- -- ノーマルモードからインサートモードに切り替える際にカーソル位置を保存
+-- vim.api.nvim_create_autocmd("InsertEnter", {
+--   pattern = "*",
+--   callback = function()
+--       vim.api.nvim_set_var('save_cursor', vim.api.nvim_win_get_cursor(0))
+--   end
+-- })
+
+-- -- インサートモードを抜ける際に保存したカーソル位置に戻る
+-- vim.api.nvim_create_autocmd("InsertLeave", {
+--   pattern = "*",
+--   callback = function()
+--       vim.api.nvim_win_set_cursor(0, vim.api.nvim_get_var('save_cursor'))
+--   end
+-- })
