@@ -12,7 +12,6 @@ discharging_symbol = '💦'
 [time]
 disabled = false
 time_format = '%R'
-right = true
 
 [shell]
 unknown_indicator = 'mystery shell'
