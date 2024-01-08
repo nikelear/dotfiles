@@ -15,10 +15,3 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
--- comment.nvim
-vim.keymap.set('n', '<C-/>', 'gcc', {})
-vim.keymap.set('v', '<C-/>', 'gc', {})
-vim.keymap.set('i', '<C-/>', [[jjj<Esc>:normal gcc<CR>:s/jjj//g<CR>A]],{ noremap = true, silent = true })
-
-
--- -- telescope keymap

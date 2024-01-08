@@ -34,14 +34,29 @@ vim.o.pumheight = 10
 
 -- terminal 256 colors
 vim.o.termguicolors = true
+vim.opt.winblend = 0
+-- vim.opt.pumblend = 0
 
 vim.opt.list = true
 vim.opt.listchars = {
+  space = '⋅',
   tab = '>>',
   trail = '-',
   nbsp = '+',
   eol = '↵',
 }
+
+vim.api.nvim_create_augroup('extra-whitespace', {})
+vim.api.nvim_create_autocmd({'VimEnter', 'WinEnter'}, {
+    group = 'extra-whitespace',
+    pattern = {'*'},
+    command = [[call matchadd('ExtraWhitespace', '[\u00A0\u2000-\u200B\u3000]')]]
+})
+vim.api.nvim_create_autocmd({'ColorScheme'}, {
+    group = 'extra-whitespace',
+    pattern = {'*'},
+    command = [[highlight default ExtraWhitespace ctermbg=202 ctermfg=202 guibg=salmon]]
+})
 
 
 

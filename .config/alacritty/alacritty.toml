@@ -14,3 +14,8 @@ bold_italic = {family = "UDEV Gothic 35NFLG", style = "BoldItalic" }
 
 [mouse]
 hide_when_typing = true
+
+[[keyboard.bindings]]
+chars = "\u0000"
+key = "Space"
+mods = "Control"
