@@ -1,0 +1,7 @@
+[include]
+	path = .gitconfig.local
+[user]
+	name = nikelear
+	email = nike.lear@gmail.com
+[core]
+	autoCRLF = true
