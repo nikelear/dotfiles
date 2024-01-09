@@ -16,7 +16,8 @@ require('option')
 require('keymap')
 require("lazy").setup(
   "plugin",
-  -- {},
+  -- {
+  -- },
   {}
 )
 require('autocmd')

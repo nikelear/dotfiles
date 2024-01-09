@@ -7,6 +7,8 @@ vim.wo.relativenumber = true
 -- keep space for signcolumn
 vim.wo.signcolumn = 'yes'
 
+-- LF format
+vim.o.fileformat = 'unix'
 -- highlight on search
 vim.o.hlsearch = false
 -- mouse mode
