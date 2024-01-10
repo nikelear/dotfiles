@@ -1,7 +1,3 @@
--- set leader keys
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
 -- disable space key when normal mode and visual mode
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
@@ -16,3 +12,4 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open float
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 vim.keymap.set('n','<C-l>','<cmd>Lazy<CR>')
+

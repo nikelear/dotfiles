@@ -1,6 +1,10 @@
 -- lua load faster
 vim.loader.enable()
 
+-- set leader keys
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
 -- row number
 vim.wo.number = true
 vim.wo.relativenumber = true
@@ -13,8 +17,8 @@ vim.o.fileformat = 'unix'
 vim.o.hlsearch = false
 -- mouse mode
 vim.o.mouse = 'a'
--- share clipboard
-vim.o.clipboard = 'unnamedplus'
+-- -- share clipboard
+-- vim.o.clipboard = 'unnamedplus'
 -- keep indent when break
 vim.o.breakindent = true
 -- save history
@@ -59,6 +63,4 @@ vim.api.nvim_create_autocmd({'ColorScheme'}, {
     pattern = {'*'},
     command = [[highlight default ExtraWhitespace ctermbg=202 ctermfg=202 guibg=salmon]]
 })
-
-
 

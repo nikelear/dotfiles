@@ -1,4 +1,4 @@
-local plugins = {
+return {
 
   { 
     -- manager
@@ -6,25 +6,27 @@ local plugins = {
   },
   {
     -- skin
-    "folke/tokyonight.nvim",
-    event = { "BufReadPre", "BufWinEnter" },
+    -- "folke/tokyonight.nvim",
+    "EdenEast/nightfox.nvim",
+    event = {"ModeChanged", "BufRead", "BufNewFile"},
     config = function()
-      require("plugin-config/tokyonight")
+      -- require("plugin-config/tokyonight")
+      vim.cmd[[colorscheme carbonfox]]
     end
   },
-  {
-    'goolord/alpha-nvim',
-    dependencies = {
-      'nvim-tree/nvim-web-devicons',
-    },
-    config = function()
-      require("alpha").setup(require"plugin-config/alpha".config)
-    end
-  },
+  -- {
+  --   'goolord/alpha-nvim',
+  --   dependencies = {
+  --     'nvim-tree/nvim-web-devicons',
+  --   },
+  --   config = function()
+  --     require("alpha").setup(require"plugin-config/alpha".config)
+  --   end
+  -- },
   {
     -- notification etc
     'folke/noice.nvim',
-    event = "VeryLazy",
+    event = {"ModeChanged", "BufRead", "BufNewFile"},
     opts = {},
     dependencies = {
       "MunifTanjim/nui.nvim",
@@ -33,7 +35,7 @@ local plugins = {
   {
     -- makeup line
     'nvim-lualine/lualine.nvim',
-    event = {"InsertEnter", "BufRead", "BufNewFile"},
+    event = {"ModeChanged", "BufRead", "BufNewFile"},
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     opts = {}
   },
@@ -141,7 +143,6 @@ local plugins = {
   {
     -- view keymap
     'folke/which-key.nvim',
-    keys = ' ',
     config = function()
       require("plugin-config/which-key")
     end,
@@ -151,8 +152,8 @@ local plugins = {
     -- fuzzy finder
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
-    cmd = 'Telescope',
-    keys = ' ',
+    -- cmd = 'Telescope',
+    keys = require("plugin-config/telescope-keymap"),
     dependencies = {
       'nvim-lua/plenary.nvim',
       {
@@ -205,6 +206,4 @@ local plugins = {
     end
   },
 
-
 }
-return plugins
