@@ -143,9 +143,8 @@ return {
   {
     -- view keymap
     'folke/which-key.nvim',
-    config = function()
-      require("plugin-config/which-key")
-    end,
+    keys = require("plugin-config/any-key"),
+    config = "plugin-config.which-key",
   },
 
   {

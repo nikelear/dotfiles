@@ -64,3 +64,4 @@ vim.api.nvim_create_autocmd({'ColorScheme'}, {
     command = [[highlight default ExtraWhitespace ctermbg=202 ctermfg=202 guibg=salmon]]
 })
 
+vim.cmd[[colorscheme default]]
