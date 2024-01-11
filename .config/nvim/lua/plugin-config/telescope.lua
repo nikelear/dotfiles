@@ -11,3 +11,4 @@ require('telescope').setup {
 
 -- fzf setup(if installed)
 pcall(require('telescope').load_extension, 'fzf')
+require("telescope").load_extension("undo")

@@ -20,7 +20,7 @@ vim.o.hlsearch = false
 -- mouse mode
 vim.o.mouse = 'a'
 -- -- share clipboard
--- vim.o.clipboard = 'unnamedplus'
+vim.o.clipboard = 'unnamedplus'
 -- keep indent when break
 vim.o.breakindent = true
 -- save history
@@ -69,8 +69,9 @@ vim.api.nvim_create_autocmd({'ColorScheme'}, {
 
 -- OSに基づいてpython3のパスを設定
 local os_name = vim.loop.os_uname().sysname
+local profile = vim.fn.getenv('HOME')
 if os_name == "Windows_NT" then
-  vim.g.python3_host_prog = "C:\\Users\\yseki.DKR\\AppData\\Local\\Microsoft\\WindowsApps\\python3.exe"
+  vim.g.python3_host_prog = profile .. "\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
 elseif os_name == "Linix" then
   vim.g.python3_host_prog = "/usr/bin/python3"
 end

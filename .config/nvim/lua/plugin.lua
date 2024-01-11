@@ -143,7 +143,8 @@ return {
   {
     -- view keymap
     'folke/which-key.nvim',
-    keys = require("plugin-config/any-key"),
+    keys = " ",
+    -- keys = require("plugin-config/any-key"),
     config = "plugin-config.which-key",
   },
 
@@ -151,17 +152,19 @@ return {
     -- fuzzy finder
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
-    -- cmd = 'Telescope',
-    keys = require("plugin-config/telescope-keymap"),
+    cmd = 'Telescope',
     dependencies = {
       'nvim-lua/plenary.nvim',
       {
         'nvim-telescope/telescope-fzf-native.nvim',
         build = 'make',
-        cond = function()
-          return vim.fn.executable 'make' == 1
-        end,
+        -- cond = function()
+        --   return vim.fn.executable 'make' == 1
+        -- end,
       },
+      { "nvim-telescope/telescope-frecency.nvim" },
+      { "nvim-telescope/telescope-live-grep-args.nvim" },
+      { "debugloop/telescope-undo.nvim" },
     },
 
     config = function()
@@ -182,7 +185,6 @@ return {
     },
     config = function()
         require("plugin-config/lspconfig")
-        require("mason").setup({})
     end
   },
   {
@@ -191,10 +193,12 @@ return {
     event = 'LspAttach',
     opts = {},
   },
+  
+  -- completion------------------------------
   {
     -- CMP
     "hrsh7th/nvim-cmp",
-    event = {"CmdlineEnter","InsertEnter"},
+    event = {"ModeChanged"},
     dependencies = {
       {"hrsh7th/cmp-nvim-lsp"},
       {"hrsh7th/cmp-buffer"},
