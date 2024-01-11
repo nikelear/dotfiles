@@ -1,3 +1,6 @@
+# rust
+. "$HOME/.cargo/env"
+
 # plugin
 cache_dir=${XDG_CACHE_HOME:-$HOME/.cache}
 sheldon_cache="$cache_dir/sheldon.zsh"
