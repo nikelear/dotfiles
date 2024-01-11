@@ -4,16 +4,7 @@ return {
     -- manager
     "folke/lazy.nvim",
   },
-  {
-    -- skin
-    "folke/tokyonight.nvim",
-    -- "EdenEast/nightfox.nvim",
-    event = {"ModeChanged", "BufRead", "BufNewFile"},
-    config = function()
-      require("plugin-config/tokyonight")
-      -- vim.cmd[[colorscheme carbonfox]]
-    end
-  },
+
   -- {
   --   'goolord/alpha-nvim',
   --   dependencies = {
@@ -23,20 +14,29 @@ return {
   --     require("alpha").setup(require"plugin-config/alpha".config)
   --   end
   -- },
-  {
-    -- notification etc
-    'folke/noice.nvim',
-    event = {"ModeChanged", "BufRead", "BufNewFile"},
-    opts = {},
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      }
-  },
+  -- {
+  --   -- notification etc
+  --   'folke/noice.nvim',
+  --   -- event = {"ModeChanged", "BufRead", "BufNewFile"},
+  --   opts = {},
+  --   dependencies = {
+  --     "MunifTanjim/nui.nvim",
+  --     }
+  -- },
   {
     -- makeup line
     'nvim-lualine/lualine.nvim',
     event = {"ModeChanged", "BufRead", "BufNewFile"},
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+      {
+        -- skin
+        "folke/tokyonight.nvim",
+        config = function()
+          require("plugin-config/tokyonight")
+        end
+      },
+    },
     opts = {}
   },
   {

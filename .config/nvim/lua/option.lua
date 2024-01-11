@@ -69,7 +69,6 @@ vim.api.nvim_create_autocmd({'ColorScheme'}, {
 
 -- OSに基づいてpython3のパスを設定
 local os_name = vim.loop.os_uname().sysname
-print(vim.fn.getenv("HOME"))
 if os_name == "Windows_NT" then
   vim.g.python3_host_prog = "C:\\Users\\yseki.DKR\\AppData\\Local\\Microsoft\\WindowsApps\\python3.exe"
 elseif os_name == "Linix" then
