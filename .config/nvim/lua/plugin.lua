@@ -6,12 +6,12 @@ return {
   },
   {
     -- skin
-    -- "folke/tokyonight.nvim",
-    "EdenEast/nightfox.nvim",
+    "folke/tokyonight.nvim",
+    -- "EdenEast/nightfox.nvim",
     event = {"ModeChanged", "BufRead", "BufNewFile"},
     config = function()
-      -- require("plugin-config/tokyonight")
-      vim.cmd[[colorscheme carbonfox]]
+      require("plugin-config/tokyonight")
+      -- vim.cmd[[colorscheme carbonfox]]
     end
   },
   -- {
@@ -172,7 +172,7 @@ return {
   {
     -- LSP Config
     "neovim/nvim-lspconfig",
-    event = {"CmdlineEnter","InsertEnter"},
+    event = {"ModeChanged"},
     dependencies = {
       {
         -- LSP,DAP manager
@@ -182,6 +182,7 @@ return {
     },
     config = function()
         require("plugin-config/lspconfig")
+        require("mason").setup({})
     end
   },
   {

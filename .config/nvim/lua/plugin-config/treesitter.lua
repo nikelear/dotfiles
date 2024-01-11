@@ -3,7 +3,8 @@ require('nvim-treesitter.configs').setup{
           'c', 'cpp', 'rust',
           'go', 'lua', 'python',
           'html', 'css', 'tsx', 'javascript', 'typescript',
-          'vimdoc', 'vim', 'bash'
+          'vimdoc', 'vim', 'bash',
+          'regex','markdown',
         },
         highlight = { enable = true },
         indent = { enable = true },

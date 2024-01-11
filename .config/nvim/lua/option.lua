@@ -1,5 +1,7 @@
 -- lua load faster
 vim.loader.enable()
+-- default color
+vim.cmd[[colorscheme default]]
 
 -- set leader keys
 vim.g.mapleader = ' '
@@ -64,4 +66,14 @@ vim.api.nvim_create_autocmd({'ColorScheme'}, {
     command = [[highlight default ExtraWhitespace ctermbg=202 ctermfg=202 guibg=salmon]]
 })
 
-vim.cmd[[colorscheme default]]
+
+-- OSに基づいてpython3のパスを設定
+local os_name = vim.loop.os_uname().sysname
+print(vim.fn.getenv("HOME"))
+if os_name == "Windows" then
+  -- Windowsの場合のPythonパス（例: PythonがCドライブにインストールされている場合）
+  vim.g.python3_host_prog = "C:\\Path\\To\\Python\\python.exe"
+elseif os_name == "Unix" then
+  -- Linux/Unixの場合のPythonパス（例: 通常のPythonインストールパス）
+  vim.g.python3_host_prog = "/usr/bin/python3"
+end

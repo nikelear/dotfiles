@@ -12,10 +12,13 @@ alias au='sudo apt update'
 alias aug='sudo apt upgrade'
 
 #vim
+alias v='nvim'
 alias vf='vifm'
+alias vimrc='nvim ~/.config/nvim/init.lua'
 
 # tmux
-alias t='tmux attach || tmux new-session'
+alias t='tmux attach || tmux'
+alias tmuxconf='nvim ~/.tmux.conf'
 
 # git
 alias gs='git status'
@@ -30,7 +33,4 @@ alias gb='git branch'
 alias gl='git log --oneline --graph --decorate'
 
 # settings
-alias initrc='vim ~/.config/initrc'
-alias vimrc='vim ~/.vimrc'
-alias tmuxconf='vim ~/.tmux.conf'
 alias reload='exec $SHELL -l'
