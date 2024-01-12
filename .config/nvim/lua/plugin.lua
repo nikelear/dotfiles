@@ -7,8 +7,12 @@ return {
 
   {
     -- skin
-    "folke/tokyonight.nvim",
-    config = require("plugin-config.tokyonight")
+    "EdenEast/nightfox.nvim",
+    -- "folke/tokyonight.nvim",
+    -- config = require("plugin-config.tokyonight")
+    config = function()
+      vim.cmd[[colorscheme carbonfox]]
+    end
   },
   -- {
   --   'goolord/alpha-nvim',
@@ -71,12 +75,8 @@ return {
   {
     -- toggle comment
     'numToStr/Comment.nvim',
-    keys = {"<C-/>","g"},
-    config = function()
-      vim.keymap.set('n', '<C-/>', 'gcc', {})
-      vim.keymap.set('v', '<C-/>', 'gc', {})
-      vim.keymap.set('i', '<C-/>', [[jjj<Esc>:normal gcc<CR>:s/jjj//g<CR>A]],{ noremap = true, silent = true })
-    end
+    -- config = "plugin-config.comment"
+    config = require("plugin-config.comment")
   },
   {
     -- same words highlight
