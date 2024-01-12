@@ -19,7 +19,7 @@ for file in $(find "${dfdir}" -maxdepth 1 -name ".*"); do
             unlink "${HOME}/${filename}"
         fi
     fi
-
+    echo "link ${file} to ${HOME}/${filename}"
     ln -snf "${file}" "${HOME}/${filename}"
 
 done
