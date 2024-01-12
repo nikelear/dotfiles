@@ -5,6 +5,11 @@ return {
     "folke/lazy.nvim",
   },
 
+  {
+    -- skin
+    "folke/tokyonight.nvim",
+    config = require("plugin-config.tokyonight")
+  },
   -- {
   --   'goolord/alpha-nvim',
   --   dependencies = {
@@ -29,13 +34,6 @@ return {
     event = {"ModeChanged", "BufRead", "BufNewFile"},
     dependencies = {
       'nvim-tree/nvim-web-devicons',
-      {
-        -- skin
-        "folke/tokyonight.nvim",
-        config = function()
-          require("plugin-config/tokyonight")
-        end
-      },
     },
     opts = {}
   },
@@ -132,6 +130,11 @@ return {
     end
   },
   {
+    "folke/flash.nvim",
+    keys = {"/","?"},
+    opts = {}
+  },
+  {
     -- git
     "lewis6991/gitsigns.nvim",
     event = {'BufNewFile', 'BufRead'},
@@ -145,7 +148,7 @@ return {
     'folke/which-key.nvim',
     keys = " ",
     -- keys = require("plugin-config/any-key"),
-    config = "plugin-config.which-key",
+    config = require("plugin-config.which-key"),
   },
 
   {
@@ -175,25 +178,26 @@ return {
   {
     -- LSP Config
     "neovim/nvim-lspconfig",
-    event = {"ModeChanged"},
+    event = {"ModeChanged", 'BufNewFile', 'BufRead'},
     dependencies = {
       {
         -- LSP,DAP manager
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
+        -- lua config
+        "folke/neodev.nvim",
+        -- LSP working
+        {"j-hui/fidget.nvim",opts = {},},
+        -- 
+        {
+          'folke/trouble.nvim',
+          dependencies = { "nvim-tree/nvim-web-devicons" },
+          opts = {},
+        },
       },
     },
-    config = function()
-        require("plugin-config/lspconfig")
-    end
+    config = require("plugin-config.lspconfig")
   },
-  {
-    -- LSP status 
-    "j-hui/fidget.nvim",
-    event = 'LspAttach',
-    opts = {},
-  },
-  
   -- completion------------------------------
   {
     -- CMP
