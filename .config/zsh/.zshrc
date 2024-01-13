@@ -1,5 +1,22 @@
 # rust
-. "$HOME/.cargo/env"
+case ":${PATH}:" in
+    *:"$HOME/.cargo/bin":*)
+        ;;
+    *)
+        # Prepending path in case a system-installed rustc needs to be overridden
+        export PATH="$HOME/.cargo/bin:$PATH"
+        ;;
+esac
+
+# deno
+case ":${PATH}:" in
+    *:"$HOME/.deno/bin":*)
+        ;;
+    *)
+        # Prepending path in case a system-installed rustc needs to be overridden
+        export PATH="$HOME/.deno/bin:$PATH"
+        ;;
+esac
 
 # plugin
 cache_dir=${XDG_CACHE_HOME:-$HOME/.cache}

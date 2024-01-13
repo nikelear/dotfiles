@@ -1,0 +1,1 @@
+console.debug(Deno.build.os);
