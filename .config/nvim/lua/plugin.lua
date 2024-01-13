@@ -1,10 +1,9 @@
 return {
 
-  { 
+  {
     -- manager
     "folke/lazy.nvim",
   },
-
   {
     -- skin
     "EdenEast/nightfox.nvim",
@@ -141,7 +140,6 @@ return {
     config = function()
       require('plugin-config/gitsigns')
     end,
-    
   },
   {
     -- view keymap
