@@ -1,5 +1,5 @@
 [include]
 	path = .gitconfig.local
 [user]
-	name = nikelear
+	name  = nikelear
 	email = nike.lear@gmail.com

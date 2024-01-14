@@ -1,5 +1,4 @@
-New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\.config" -Target "$env:USERPROFILE\dotfiles\.config"
-New-Item -ItemType SymbolicLink -Path "$env:APPDATA\alacritty" -Target "$env:USERPROFILE\.config\alacritty"
+New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\config" -Target "$env:USERPROFILE\dotfiles\.config"
 New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\Documents\PowerShell\" -Target "$env:USERPROFILE\.config\powershell"
 
 $filePath = "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
