@@ -25,11 +25,15 @@ vim.keymap.set('n', '<leader>sg', '<cmd>Telescope live_grep<CR>', { desc = '[S]e
 vim.keymap.set('n', '<leader>sG', '<cmd>LiveGrepGitRoot<cr><CR>', { desc = '[S]earch by [G]rep on Git Root' })
 vim.keymap.set('n', '<leader>sd', '<cmd>Telescope diagnostics<CR>', { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sr', '<cmd>Telescope resume<CR>', { desc = '[S]earch [R]esume' })
+vim.keymap.set('n', '<leader>su', '<cmd>Telescope undo<CR>', { desc = '[S]earch [U]ndo History' })
+vim.keymap.set('n', '<leader>b', '<cmd>Telescope file_browser<CR>', { desc = 'File [B]rouser' })
+vim.keymap.set("n", "<leader>lg", require("telescope-live-grep-args.shortcuts").grep_word_under_cursor, { desc = '[L]ive [G]rep' })
+
 
 local function telescope_plugin_find()
   require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root })
 end
-vim.keymap.set('n','<leader>sp', telescope_plugin_find, { desc = '[Search] [P]lugin files' })
+vim.keymap.set('n','<leader>sp', telescope_plugin_find, { desc = '[S]earch [P]lugin files' })
 
 local function telescope_buffer_fuzzy_find()
   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
