@@ -1,21 +1,21 @@
 # rust
 case ":${PATH}:" in
-    *:"$HOME/.cargo/bin":*)
-        ;;
-    *)
-        # Prepending path in case a system-installed rustc needs to be overridden
-        export PATH="$HOME/.cargo/bin:$PATH"
-        ;;
+  *:"$HOME/.cargo/bin":*)
+    ;;
+  *)
+    # Prepending path in case a system-installed rustc needs to be overridden
+    export PATH="$HOME/.cargo/bin:$PATH"
+    ;;
 esac
 
 # deno
 case ":${PATH}:" in
-    *:"$HOME/.deno/bin":*)
-        ;;
-    *)
-        # Prepending path in case a system-installed rustc needs to be overridden
-        export PATH="$HOME/.deno/bin:$PATH"
-        ;;
+  *:"$HOME/.deno/bin":*)
+    ;;
+  *)
+    # Prepending path in case a system-installed rustc needs to be overridden
+    export PATH="$HOME/.deno/bin:$PATH"
+    ;;
 esac
 
 # plugin
@@ -34,13 +34,15 @@ unset cache_dir sheldon_cache sheldon_toml
 # setting files
 ZSH_DIR="${HOME}/.config/zsh/rc"
 if [ -d $ZSH_DIR ] && [ -r $ZSH_DIR ] && [ -x $ZSH_DIR ]; then
-    for file in ${ZSH_DIR}/**/*.zsh; do
-        [ -r $file ] && source $file
-    done
+  for file in ${ZSH_DIR}/**/*.zsh; do
+    [ -r $file ] && source $file
+  done
 fi
 
 # prompt
-eval "$(starship init zsh)"
+if [ -e $HOME/.cargo/bin/starship ]; then
+  eval "$(starship init zsh)"
+fi
 
 # profiling
 if (which zprof > /dev/null 2>&1) ;then

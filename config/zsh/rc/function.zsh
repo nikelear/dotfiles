@@ -21,18 +21,20 @@ tj () {
   trans -b :ja "$*"
 }
 
-cdh () {
-  if [ -d /mnt/c ]; then
+if [ -d /mnt/c ]; then
+  cdh () {
     if command -v cmd > /dev/null; then
       cd /mnt/c
       userprofile=$(cmd /C echo %USERPROFILE% | tr -d '\r')
       fd=$(echo "$userprofile" | awk -F'\\' '{print $NF}')
-
+  
       cd /mnt/c/Users/$fd
     else
       echo "not set cmd-path"
     fi
-  else
-    echo "not in wsl"
-  fi
+  }
+fi
+
+cs () {
+  cd $(fd --type d | sk)
 }
