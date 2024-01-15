@@ -182,6 +182,8 @@ return {
         -- LSP,DAP manager
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
+        -- lsp settings
+        "nvimdev/lspsaga.nvim",
         -- lua config
         "folke/neodev.nvim",
         -- LSP working

@@ -48,6 +48,7 @@ return function()
   require("mason").setup({})
   require('mason-lspconfig').setup()
   require("neodev").setup({})
+  require("lspsaga").setup({})
   local servers = {
     -- clangd = {},
     -- gopls = {},
