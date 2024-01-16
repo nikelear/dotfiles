@@ -54,6 +54,10 @@ if [ -d ${ZENO} ]; then
   source "${ZENO}/zeno.zsh"
 fi
 
+if [ -d /home/linuxbrew ]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
 # prompt
 if [ -e $HOME/.cargo/bin/starship ]; then
   eval "$(starship init zsh)"
