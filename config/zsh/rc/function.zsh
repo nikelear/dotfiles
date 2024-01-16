@@ -7,19 +7,11 @@ ggr () {
 wiki () {
   if [ $# -ne 1 ]; then
     echo "Function wiki requires exactly one argument."
-    return
+  else
+    firefox "https://ja.wikipedia.org/wiki/"$1
   fi
-  firefox "https://ja.wikipedia.org/wiki/"$1
 }
 
-# translate
-te () {
-  trans -b :en "$*"
-}
-
-tj () {
-  trans -b :ja "$*"
-}
 
 if [ -d /mnt/c ]; then
   cdh () {
@@ -35,6 +27,3 @@ if [ -d /mnt/c ]; then
   }
 fi
 
-cs () {
-  cd $(fd --type d | sk)
-}

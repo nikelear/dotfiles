@@ -61,8 +61,8 @@ if [ -d $compdir ]; then
     echo byy
     fpath=(${compdir} $fpath)
 fi
-zsh-defer autoload -Uz compinit
-zsh-defer compinit
+autoload -Uz compinit
+compinit
 
 
 # 単語の入力途中でもTab補完を有効化

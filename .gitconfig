@@ -3,3 +3,5 @@
 [user]
 	name  = nikelear
 	email = nike.lear@gmail.com
+[ghq]
+	root = ~/src

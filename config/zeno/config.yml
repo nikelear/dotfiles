@@ -1,0 +1,22 @@
+snippets:
+  - name: git add
+    keyword: ga
+    snippet: git add
+  - name: git commit message
+    keyword: gcm
+    snippet: git commit -m '{{commit_message}}'
+  - name: git status
+    keyword: gs
+    snippet: git status --short --branch
+  - name: change directry fzf
+    keyword: cs
+    snippet: cd $(fd --type d | sk)
+  - name: translate to english
+    keyword: te
+    snippet: trans -b :en '{{target}}'
+  - name: translate to japanese
+    keyword: tj
+    snippet: trans -b :jp '{{target}}'
+  - name: shell reload
+    keyword: reload
+    snippet: exec $SHELL -l

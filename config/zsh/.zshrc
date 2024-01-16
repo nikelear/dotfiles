@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # rust
 case ":${PATH}:" in
   *:"$HOME/.cargo/bin":*)
@@ -17,11 +10,21 @@ esac
 
 # deno
 case ":${PATH}:" in
-  *:"$HOME/.deno/bin":*)
+  *:"${DENO_INSTALL}/bin":*)
     ;;
   *)
     # Prepending path in case a system-installed rustc needs to be overridden
-    export PATH="$HOME/.deno/bin:$PATH"
+    export PATH="${DENO_INSTALL}/bin:$PATH"
+    ;;
+esac
+
+# go
+case ":${PATH}:" in
+  *:"${GOPATH}/bin":*)
+    ;;
+  *)
+    # Prepending path in case a system-installed rustc needs to be overridden
+    export PATH="${GOPATH}/bin:$PATH"
     ;;
 esac
 
@@ -46,6 +49,11 @@ if [ -d $ZSH_DIR ] && [ -r $ZSH_DIR ] && [ -x $ZSH_DIR ]; then
   done
 fi
 
+ZENO="${HOME}/.local/share/sheldon/repos/github.com/yuki-yano/zeno.zsh"
+if [ -d ${ZENO} ]; then
+  source "${ZENO}/zeno.zsh"
+fi
+
 # prompt
 if [ -e $HOME/.cargo/bin/starship ]; then
   eval "$(starship init zsh)"
@@ -55,6 +63,3 @@ fi
 if (which zprof > /dev/null 2>&1) ;then
   zprof
 fi
-
-# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
