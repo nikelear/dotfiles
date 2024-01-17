@@ -29,17 +29,12 @@ case ":${PATH}:" in
 esac
 
 # plugin
-cache_dir=${XDG_CACHE_HOME:-$HOME/.cache}
-sheldon_cache="$cache_dir/sheldon.zsh"
-sheldon_toml="$HOME/.config/sheldon/plugins.toml"
-# キャッシュがない、またはキャッシュが古い場合にキャッシュを作成
-if [[ ! -r "$sheldon_cache" || "$sheldon_toml" -nt "$sheldon_cache" ]]; then
-  mkdir -p $cache_dir
-  rm -f $sheldon_cache
-  sheldon source > $sheldon_cache
+if [ -f $HOME/.cargo/bin/sheldon ]; then
+  eval $(sheldon source)
+else
+  PROMPT=$'%F{yellow}%n%f%F{green}@%m%f %~ \n$ '
+  RPROMPT='%T'
 fi
-source "$sheldon_cache"
-unset cache_dir sheldon_cache sheldon_toml
 
 # setting files
 ZSH_DIR="${HOME}/.config/zsh/rc"
