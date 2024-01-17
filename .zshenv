@@ -2,7 +2,7 @@
 # zmodload zsh/zprof
 
 # autorun-editor
-export EDITOR=nvim
+export EDITOR=vim
 
 # installer-connect
 export RSYNC_RSH=ssh

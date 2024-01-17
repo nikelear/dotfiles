@@ -29,11 +29,11 @@ case ":${PATH}:" in
 esac
 
 # plugin
-if [ -f $HOME/.cargo/bin/sheldon ]; then
-  eval $(sheldon source)
+if [ "$(type sheldon)" = "*not found*" ]; then
+  PROMPT=$'%n@%m %~ \n$'
+  RPROMPT="%T"
 else
-  PROMPT=$'%F{yellow}%n%f%F{green}@%m%f %~ \n$ '
-  RPROMPT='%T'
+  eval $(sheldon source)
 fi
 
 # setting files
