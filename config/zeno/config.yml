@@ -20,3 +20,6 @@ snippets:
   - name: shell reload
     keyword: reload
     snippet: exec $SHELL -l
+  - name: profiling
+    keyword: hpf
+    snippet: hyperfine -w 5 -r 50 'zsh -i -c exit'

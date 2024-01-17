@@ -20,6 +20,3 @@ alias vimrc='nvim ~/.config/nvim/init.lua'
 alias t='tmux attach || tmux'
 alias tmuxconf='nvim ~/.tmux.conf'
 
-# profiling
-alias zshhyperfine="hyperfine -w 5 -r 50 'zsh -i -c exit'"
-

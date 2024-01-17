@@ -1,33 +1,3 @@
-# # rust
-# case ":${PATH}:" in
-#   *:"$HOME/.cargo/bin":*)
-#     ;;
-#   *)
-#     # Prepending path in case a system-installed rustc needs to be overridden
-#     export PATH="$HOME/.cargo/bin:$PATH"
-#     ;;
-# esac
-
-# # deno
-# case ":${PATH}:" in
-#   *:"${DENO_INSTALL}/bin":*)
-#     ;;
-#   *)
-#     # Prepending path in case a system-installed rustc needs to be overridden
-#     export PATH="${DENO_INSTALL}/bin:$PATH"
-#     ;;
-# esac
-
-# # go
-# case ":${PATH}:" in
-#   *:"${GOPATH}/bin":*)
-#     ;;
-#   *)
-#     # Prepending path in case a system-installed rustc needs to be overridden
-#     export PATH="${GOPATH}/bin:$PATH"
-#     ;;
-# esac
-
 paths_to_add=(
   "${HOME}/.cargo/bin"
   "${DENO_INSTALL}/bin"
@@ -49,9 +19,11 @@ else
   RPROMPT="%T"
 fi
 
-# if type deno &> /dev/null; then
-#   source "${HOME}/.local/share/sheldon/repos/github.com/yuki-yano/zeno.zsh/zeno.zsh"
-# fi
+if type deno &> /dev/null; then
+  zsh-defer source $ZDOTDIR/plugin-config/zeno_atinit.zsh
+  zsh-defer source "${HOME}/.local/share/sheldon/repos/github.com/yuki-yano/zeno.zsh/zeno.zsh"
+  zsh-defer source $ZDOTDIR/plugin-config/zeno_atload.zsh
+fi
 
 # setting files
 ZSH_DIR="${HOME}/.config/zsh/rc"
