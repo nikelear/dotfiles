@@ -1,7 +1,7 @@
 -- lua load faster
 vim.loader.enable()
 -- default color
-vim.cmd[[colorscheme default]]
+-- vim.cmd[[colorscheme default]]
 
 -- set leader keys
 vim.g.mapleader = ' '
