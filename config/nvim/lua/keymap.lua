@@ -1,6 +1,9 @@
 -- Lazy
 vim.keymap.set('n','<C-l>','<cmd>Lazy<CR>')
 
+-- general
+vim.keymap.set('n',"<C-s>",'<cmd>write<CR>')
+vim.keymap.set('i',"<C-s>",'<C-o>:w<CR>')
 vim.keymap.set('n','<leader><esc>','<cmd>q!<CR>')
 
 -- Remap for dealing with word wrap
