@@ -4,7 +4,6 @@ paths_to_add=(
   "${DENO_INSTALL}/bin"
   "${GOPATH}/bin"
 )
-
 for pstr in $paths_to_add; do
   if [[ ":$PATH:" != *":$pstr:"* ]]; then
     export PATH="$PATH:$pstr"
@@ -19,11 +18,14 @@ else
   RPROMPT="%T"
 fi
 
-if type deno &> /dev/null; then
-  zsh-defer source $ZDOTDIR/plugin-config/zeno_atinit.zsh
-  zsh-defer source "${HOME}/.local/share/sheldon/repos/github.com/yuki-yano/zeno.zsh/zeno.zsh"
-  zsh-defer source $ZDOTDIR/plugin-config/zeno_atload.zsh
-fi
+ZENO="${HOME}/.local/share/sheldon/repos/github.com/yuki-yano/zeno.zsh/"
+type deno &> /dev/null && [ -d "${ZENO}" ] && zsh-defer source "${ZENO}zeno.zsh"
+
+# homebrew in linux
+type brew &> /dev/null && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# prompt
+type starship &> /dev/null && eval "$(starship init zsh)"
 
 # setting files
 ZSH_DIR="${HOME}/.config/zsh/rc"
@@ -33,17 +35,5 @@ if [ -d $ZSH_DIR ] && [ -r $ZSH_DIR ] && [ -x $ZSH_DIR ]; then
   done
 fi
 
-# homebrew in linux
-if type brew &> /dev/null; then
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
-
-# prompt
-if type starship &> /dev/null; then
-  eval "$(starship init zsh)"
-fi
-
 # profiling
-if type zprof &> /dev/null; then
-  zprof
-fi
+type zprof &> /dev/null && zprof

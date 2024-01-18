@@ -1,8 +1,8 @@
 
 shell = "zsh"
 
-[templates]
-defer = "{{ hooks | get: \"pre\" | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks | get: \"post\" | nl }}"
+# [templates]
+# defer = "{{ hooks | get: \"pre\" | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks | get: \"post\" | nl }}"
 
 [plugins]
 
@@ -11,11 +11,11 @@ defer = "{{ hooks | get: \"pre\" | nl }}{% for file in files %}zsh-defer source 
 # [plugins.base16]
 # github = "chriskempson/base16-shell"
 
-[plugins.zsh-defer]
-github = "romkatv/zsh-defer"
+# [plugins.zsh-defer]
+# github = "romkatv/zsh-defer"
 
-[plugins.zeno]
-github = 'yuki-yano/zeno.zsh'
+# [plugins.zeno]
+# github = 'yuki-yano/zeno.zsh'
 # use = ['zeno.zsh']
 # apply = ["defer"]
 # hooks.pre = 'zsh-defer source $ZDOTDIR/plugin-config/zeno_atinit.zsh'
@@ -24,16 +24,16 @@ github = 'yuki-yano/zeno.zsh'
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
 use = ['{{ name }}.zsh']
-apply = ["defer"]
+# apply = ["defer"]
 
 # [plugins.zsh-syntax-highlighting]
 # github = "zsh-users/zsh-syntax-highlighting"
 # apply = ["defer"]
-[plugins.fast-syntax-highlighting]
-github = "zdharma-continuum/fast-syntax-highlighting"
-apply = ["defer"]
+# [plugins.fast-syntax-highlighting]
+# github = "zdharma-continuum/fast-syntax-highlighting"
+# apply = ["defer"]
 
-[plugins.bd]
-github = 'Tarrasch/zsh-bd'
-use = ['bd.zsh']
-apply = ["defer"]
+# [plugins.bd]
+# github = 'Tarrasch/zsh-bd'
+# use = ['bd.zsh']
+# apply = ["defer"]
