@@ -1,3 +1,4 @@
+# add path
 paths_to_add=(
   "${HOME}/.cargo/bin"
   "${DENO_INSTALL}/bin"
@@ -9,7 +10,6 @@ for pstr in $paths_to_add; do
     export PATH="$PATH:$pstr"
   fi
 done
-
 
 # plugin
 if type sheldon &> /dev/null; then
@@ -33,6 +33,7 @@ if [ -d $ZSH_DIR ] && [ -r $ZSH_DIR ] && [ -x $ZSH_DIR ]; then
   done
 fi
 
+# homebrew in linux
 if type brew &> /dev/null; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi

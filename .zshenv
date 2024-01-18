@@ -16,4 +16,3 @@ export DENO_CERT="/etc/ssl/certs/ca-certificates.crt"
 
 # go
 export GOPATH="${HOME}/.local/share/go"
-. "$HOME/.cargo/env"

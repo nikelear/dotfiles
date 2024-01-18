@@ -1,4 +1,3 @@
-
 [battery]
 full_symbol = '🔋 '
 charging_symbol = '⚡️ '
@@ -14,11 +13,9 @@ disabled = false
 time_format = '%R'
 
 [shell]
-unknown_indicator = 'mystery shell'
-style = 'cyan bold'
-
 disabled = false
 
 [directory]
-truncation_length = 100
+truncation_length = 30
 truncate_to_repo = false
+truncation_symbol = "…/"
