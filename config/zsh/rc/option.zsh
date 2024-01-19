@@ -56,10 +56,8 @@ umask 022
 ulimit -c 0
 
 # 自動補完を有効にする
-# zsh-defer autoload -Uz compinit
-# zsh-defer compinit
-autoload -Uz compinit
-compinit
+zsh-defer autoload -Uz compinit
+zsh-defer compinit
 
 # 単語の入力途中でもTab補完を有効化
 setopt complete_in_word
