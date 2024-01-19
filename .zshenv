@@ -2,7 +2,7 @@
 # zmodload zsh/zprof
 
 # autorun-editor
-export EDITOR=vim
+export EDITOR=nvim
 
 # installer-connect
 export RSYNC_RSH=ssh
@@ -16,3 +16,5 @@ export DENO_CERT="/etc/ssl/certs/ca-certificates.crt"
 
 # go
 export GOPATH="${HOME}/.local/share/go"
+
+
