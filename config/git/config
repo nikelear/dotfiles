@@ -1,5 +1,5 @@
 [include]
-	path = config.local
+	path = "${HOME}/.config/git/config.local"
 [user]
 	name  = nikelear
 	email = nike.lear@gmail.com

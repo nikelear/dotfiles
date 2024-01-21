@@ -15,9 +15,6 @@ export RSYNC_RSH=ssh
 
 # zsh
 export ZDOTDIR="${HOME}/.config/zsh"
-export HISTFILE="${ZDORDIR}/.zsh-history"
-export HISTSIZE=100000
-export SAVEHIST=1000000
 
 # deno
 export DENO_INSTALL="${HOME}/.local/share/.deno"
