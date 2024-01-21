@@ -8,7 +8,7 @@ path=(
 path=("${(@u)path}")
 
 # plugin
-if type sheldon &> /dev/null; then
+if command -v sheldon &> /dev/null; then
   eval "$(sheldon source)"
 else
   PROMPT='%F{green}%n%f%F{red}@%m%f %~ '$'\n$ '
@@ -16,7 +16,7 @@ else
 fi
 
 # prompt
-type starship &> /dev/null && eval "$(starship init zsh)"
+command -v starship &> /dev/null && eval "$(starship init zsh)"
 
 # setting files
 ZSH_DIR="${HOME}/.config/zsh/rc"
@@ -27,4 +27,4 @@ if [ -d $ZSH_DIR ] && [ -r $ZSH_DIR ] && [ -x $ZSH_DIR ]; then
 fi
 
 # profiling
-type zprof &> /dev/null && zprof || true
+command -v zprof &> /dev/null && zprof || true

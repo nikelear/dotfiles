@@ -17,6 +17,4 @@ if [[ ":$PATH:" = *":${DENO_INSTALL}/bin:"* ]]; then
   bindkey '^r' zeno-history-selection
   bindkey '^s' zeno-insert-snippet
   bindkey '^g' zeno-ghq-cd
-else
-  echo hoge
 fi
