@@ -1,5 +1,3 @@
-# エディタをvimに設定
-
 # cdした際のディレクトリをディレクトリスタックへ自動追加
 setopt auto_pushd
 
@@ -41,23 +39,8 @@ setopt correct_all
 # 上書きリダイレクトの禁止
 setopt no_clobber
 
-# # sudo の後ろでコマンド名を補完する
-# zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
-#                    /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
-
-# ps コマンドのプロセス名補完
-zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
-
 # パスの最後のスラッシュを削除しない
 setopt noautoremoveslash
-
-# その他
-umask 022
-ulimit -c 0
-
-# 自動補完を有効にする
-zsh-defer autoload -Uz compinit
-zsh-defer compinit
 
 # 単語の入力途中でもTab補完を有効化
 setopt complete_in_word
@@ -65,14 +48,21 @@ setopt complete_in_word
 # コマンドミスを修正
 setopt correct
 
-# 補完の選択を楽にする
-zstyle ':completion:*' menu select
-
 # 補完候補をできるだけ詰めて表示する
 setopt list_packed
 
 # 補完候補にファイルの種類も表示する
-#setopt list_types
+setopt list_types
+
+# 補完の選択を楽にする
+zstyle ':completion:*' menu select
+
+# sudo の後ろでコマンド名を補完する
+zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
+                   /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
+
+# ps コマンドのプロセス名補完
+zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
 
 # キャッシュの利用による補完の高速化
 zstyle ':completion::complete:*' use-cache true
@@ -85,15 +75,6 @@ zstyle ':completion:*:manuals' separate-sections true
 
 # --prefix=/usr などの = 以降でも補完
 setopt magic_equal_subst
-
-# -----------------------------
-# History
-# -----------------------------
-# 基本設定
-HISTFILE=$HOME/.config/zsh/.zsh-history
-HISTSIZE=100000
-SAVEHIST=1000000
-
 
 # ヒストリーに重複を表示しない
 setopt histignorealldups
@@ -112,3 +93,7 @@ setopt inc_append_history
 
 # ヒストリを呼び出してから実行する間に一旦編集できる状態になる
 setopt hist_verify
+
+# 自動補完を有効にする
+zsh-defer autoload -Uz compinit
+zsh-defer compinit

@@ -26,12 +26,12 @@ github = "zsh-users/zsh-autosuggestions"
 use = ['{{ name }}.zsh']
 apply = ["defer"]
 
-[plugins.zsh-syntax-highlighting]
-github = "zsh-users/zsh-syntax-highlighting"
-apply = ["defer"]
-# [plugins.fast-syntax-highlighting]
-# github = "zdharma-continuum/fast-syntax-highlighting"
+# [plugins.zsh-syntax-highlighting]
+# github = "zsh-users/zsh-syntax-highlighting"
 # apply = ["defer"]
+[plugins.fast-syntax-highlighting]
+github = "zdharma-continuum/fast-syntax-highlighting"
+apply = ["defer"]
 
 [plugins.bd]
 github = 'Tarrasch/zsh-bd'

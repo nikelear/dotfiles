@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
-
-ln -snf "${HOME}/dotfiles/config" "${HOME}/.config"
-ln -snf "${HOME}/dotfiles/.gitconfig" "${HOME}/.gitconfig"
-ln -snf "${HOME}/dotfiles/.zshenv" "${HOME}/.zshenv"
-
+DIR=$(dirname $(dirname "$0"))
+ln -sn "${DIR}/config/bash/.bash_profile" "${HOME}/.bash_profile"
+ln -sn "${DIR}/config/bash/.bashrc" "${HOME}/.bashrc"
+ln -sn "${DIR}/config" "${HOME}/.config"
+ln -sn "${DIR}/.zshenv" "${HOME}/.zshenv"
