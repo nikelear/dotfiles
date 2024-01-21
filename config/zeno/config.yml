@@ -23,3 +23,9 @@ snippets:
   - name: profiling
     keyword: hpf
     snippet: hyperfine -w 5 -r 50 'zsh -i -c exit'
+  - name: lazygit
+    keyword: lg
+    snippet: lazygit
+  - name: lazydocjer
+    keyword: ld
+    snippet: sudo lazydocker

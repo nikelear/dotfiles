@@ -18,8 +18,8 @@ github = "romkatv/zsh-defer"
 github = 'yuki-yano/zeno.zsh'
 use = ['zeno.zsh']
 apply = ["defer"]
-hooks.pre = 'zsh-defer source $ZDOTDIR/plugin-config/zeno_atinit.zsh'
-hooks.post = 'zsh-defer source $ZDOTDIR/plugin-config/zeno_atload.zsh'
+hooks.pre = 'zsh-defer source $ZDOTDIR/conf.d/zeno/atinit.zsh'
+hooks.post = 'zsh-defer source $ZDOTDIR/conf.d/zeno/atload.zsh'
 
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"

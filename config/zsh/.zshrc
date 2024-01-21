@@ -1,14 +1,11 @@
-# add path
-paths_to_add=(
-  "${HOME}/.cargo/bin"
-  "${DENO_INSTALL}/bin"
-  "${GOPATH}/bin"
+# # add path
+path=(
+  "${HOME}/.cargo/bin"(N-/)
+  "${DENO_INSTALL}/bin"(N-/)
+  "${GOPATH}/bin"(N-/)
+  "$path[@]"
 )
-for pstr in $paths_to_add; do
-  if [[ ":$PATH:" != *":$pstr:"* ]]; then
-    export PATH="$PATH:$pstr"
-  fi
-done
+path=("${(@u)path}")
 
 # plugin
 if type sheldon &> /dev/null; then

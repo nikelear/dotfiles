@@ -1,7 +1,3 @@
-HISTFILE="${ZDORDIR}/.zsh-history"
-HISTSIZE=100000
-SAVEHIST=1000000
-
 # cdした際のディレクトリをディレクトリスタックへ自動追加
 setopt auto_pushd
 
