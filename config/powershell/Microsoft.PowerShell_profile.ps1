@@ -32,8 +32,10 @@ Function SayHello($name){
 Function fzf_cd_ghq() {
     $root="$(ghq root)"
     $repo="$(ghq list | fzf --reverse --preview="ls -AF --color=always ${root}/{1}")"
-    $dir="${root}/${repo}"
-    cd "${dir}"
+    if ( ! $repo -eq "") { 
+        $dir="${root}/${repo}"
+        cd "${dir}"
+    }
 }
 Set-PSReadLineKeyHandler -Chord Ctrl+g -ScriptBlock {
     fzf_cd_ghq
