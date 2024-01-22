@@ -7,6 +7,8 @@
 !git/*
 !lazydocker
 !lazydocker/*
+!npm
+!npm*
 !nvim
 !nvim/*
 !powershell
