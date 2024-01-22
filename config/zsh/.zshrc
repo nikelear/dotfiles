@@ -1,4 +1,4 @@
-# # add path
+# add path
 path=(
   "${HOME}/.cargo/bin"(N-/)
   "${DENO_INSTALL}/bin"(N-/)
@@ -8,15 +8,15 @@ path=(
 path=("${(@u)path}")
 
 # plugin
-if command -v sheldon &> /dev/null; then
-  eval "$(sheldon source)"
+command -v sheldon &> /dev/null && eval "$(sheldon source)"
+
+# prompt
+if command -v starship &> /dev/null; then
+  eval "$(starship init zsh)"
 else
   PROMPT='%F{green}%n%f%F{red}@%m%f %~ '$'\n$ '
   RPROMPT="%T"
 fi
-
-# prompt
-command -v starship &> /dev/null && eval "$(starship init zsh)"
 
 # setting files
 ZSH_DIR="${HOME}/.config/zsh/rc"
