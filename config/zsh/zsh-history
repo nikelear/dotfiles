@@ -1,3 +1,1 @@
-: 1706444577:0;cd ~/ghq/github.com/nikelear/dotfiles
-: 1706444579:0;git pull && git push
-: 1706444591:0;git add .
+: 1706444666:0;git add .
