@@ -8,6 +8,9 @@ snippets:
   - name: git status
     keyword: gs
     snippet: git status --short --branch
+  - name: git pull and push
+    keyword: gp
+    snippet: git pull && git push
   - name: change directry fzf
     keyword: cs
     snippet: cd $(fd --type d | sk)
