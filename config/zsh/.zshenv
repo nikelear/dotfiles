@@ -31,8 +31,8 @@ export DENO_CERT="/etc/ssl/certs/ca-certificates.crt"
 export NODE_REPL_HISTORY="${XDG_STATE_HOME}/node_history"
 
 # zsh
-export ZDOTDIR="${HOME}/.config/zsh"
-export HISTFILE="${XDG_STATE_HOME}/zsh-history"
+export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
+export HISTFILE="${ZDOTDIR}/zsh-history"
 export HISTSIZE=100000
 export SAVEHIST=1000000
 
