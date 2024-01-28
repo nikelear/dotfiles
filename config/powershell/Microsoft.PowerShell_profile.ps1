@@ -1,4 +1,4 @@
-$ENV:LANG = "ja_JP.UTF-8"
+$ENV:LANG = "en_US.UTF-8"
 # prompt
 $ENV:STARSHIP_CONFIG = "${HOME}\.config\starship.toml"
 
@@ -16,10 +16,6 @@ $ENV:DENO_INSTALL="${HOME}\.local\share\.deno"
 
 # go
 $ENV:GOPATH="${HOME}\.local\share\go"
-
-# electron
-$ENV:ELECTRON_GET_USE_PROXY="true"
-$ENV:GLOBAL_AGENT_HTTPS_PROXY="http://tyo4.sme.zscaler.net:443"
 
 # npm
 $ENV:NPM_CONFIG_USERCONFIG="${HOME}/.config/npm/npmrc"
