@@ -36,3 +36,4 @@ export HISTFILE="${XDG_STATE_HOME}/zsh-history"
 export HISTSIZE=100000
 export SAVEHIST=1000000
 
+[ -e "${HOME}/local.zshenv" ] && . "${HOME}/local.zshenv"
