@@ -26,5 +26,9 @@ if [ -d $ZSH_DIR ] && [ -r $ZSH_DIR ] && [ -x $ZSH_DIR ]; then
   done
 fi
 
+if [ -e "$HOME/.local/bin/mise" ]; then
+  eval "$(/home/nikelear/.local/bin/mise activate zsh)"
+fi
+
 # profiling
 command -v zprof &> /dev/null && zprof || true
