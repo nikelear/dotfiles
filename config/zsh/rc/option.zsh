@@ -95,5 +95,10 @@ setopt inc_append_history
 setopt hist_verify
 
 # 自動補完を有効にする
-zsh-defer autoload -Uz compinit
-zsh-defer compinit
+if command -v zsh-defer &> /dev/null; then
+    zsh-defer autoload -Uz compinit
+    zsh-defer compinit
+else
+    autoload -Uz compinit
+    compinit
+fi
