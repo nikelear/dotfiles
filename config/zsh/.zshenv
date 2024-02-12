@@ -1,6 +1,5 @@
 # shell-boot profile
 # zmodload zsh/zprof
-# zsh -xvic 'exit' &> ~/zsh_startup_log.txt
 
 # installer-connect
 export RSYNC_RSH=ssh
