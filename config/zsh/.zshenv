@@ -1,5 +1,5 @@
 # shell-boot profile
-zmodload zsh/zprof
+# zmodload zsh/zprof
 
 # installer-connect
 export RSYNC_RSH=ssh

@@ -12,7 +12,7 @@ slink () {
 slink "${DIR}/config" "${HOME}/.config"
 slink "${DIR}/config/bash/.bash_profile" "${HOME}/.bash_profile"
 slink "${DIR}/config/bash/.bashrc" "${HOME}/.bashrc"
-slink "${DIR}/.zshenv" "${HOME}/.zshenv"
+slink "${DIR}/config/zsh/.zshenv" "${HOME}/.zshenv"
 
 # wsl settings
 if [ -d /mnt/c ]; then

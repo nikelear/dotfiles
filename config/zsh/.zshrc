@@ -24,7 +24,7 @@ command -v starship &> /dev/null && eval "$(starship init zsh)"
 # fi
 
 if [ -e "${HOME}/.local/bin/mise" ]; then
-  if [ ! -e "${HOME}/.cache/mise.zsh"]; then
+  if [ ! -e "${HOME}/.cache/mise.zsh" ]; then
     echo "$(${HOME}/.local/bin/mise activate zsh)" > "${HOME}/.cache/mise.zsh"
   fi
   source "${HOME}/.cache/mise.zsh"
