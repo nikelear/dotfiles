@@ -15,6 +15,7 @@ if confirm_execution "rustup"; then
 fi
 
 if confirm_execution "deno"; then
+    export DENO_INSTALL="${HOME}/.local/share/.deno"
     curl -fsSL https://deno.land/install.sh | sh
 fi
 

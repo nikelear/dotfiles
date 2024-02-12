@@ -1,12 +1,11 @@
 # shell-boot profile
-# zmodload zsh/zprof
-# zsh -xvic 'exit' &> ~/zsh_startup_log.txt
+zmodload zsh/zprof
 
 # installer-connect
 export RSYNC_RSH=ssh
 
 # autorun-editor
-export EDITOR=$(command -v nvim || command -v vim)
+export EDITOR=$(command -v nvim ||command -v vim)
 
 # fzf
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
@@ -38,3 +37,5 @@ export HISTSIZE=100000
 export SAVEHIST=1000000
 
 [ -e "${HOME}/local.zshenv" ] && . "${HOME}/local.zshenv"
+
+# zsh -xvic 'exit' &> ~/zsh_startup_log.txt
