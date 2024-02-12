@@ -2,10 +2,18 @@
 
 # symbolic links
 DIR=$(dirname $(cd $(dirname $0) && pwd))
-ln -snf "${DIR}/config/bash/.bash_profile" "${HOME}/.bash_profile"
-ln -snf "${DIR}/config/bash/.bashrc" "${HOME}/.bashrc"
-ln -snf "${DIR}/.zshenv" "${HOME}/.zshenv"
-ln -snf "${DIR}/config" "${HOME}/.config"
+slink () {
+  if [ -e $2 ] then
+    mkdir -p "~/${HOME}/bkup"
+    mv $2 "~/${HOME}/bkup/"$(basename $2)
+  fi
+  ln -snf $1 $2
+}
+slink "${DIR}/config" "${HOME}/.config"
+# ln -snf "${DIR}/config/bash/.bash_profile" "${HOME}/.bash_profile"
+# ln -snf "${DIR}/config/bash/.bashrc" "${HOME}/.bashrc"
+# ln -snf "${DIR}/.zshenv" "${HOME}/.zshenv"
+# ln -snf "${DIR}/config" "${HOME}/.config"
 
 # wsl settings
 if [ -d /mnt/c ]; then
