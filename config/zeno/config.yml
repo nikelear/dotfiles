@@ -1,13 +1,34 @@
 snippets:
+  - name: list
+    keyword: ls
+    snippet: eza --icons
+  - name: list all list
+    keyword: la
+    snippet: eza -la --icons
+  - name: list list
+    keyword: ll
+    snippet: eza -l --icons --git
+  - name: list list tree
+    keyword: lt
+    snippet: eza -l --icons --git -T
+  - name: list list tree all
+    keyword: lta
+    snippet: eza -la --icons --git -T
   - name: git add
     keyword: ga
     snippet: git add
   - name: git commit message
     keyword: gcm
     snippet: git commit -m '{{commit_message}}'
+  - name: git diff
+    keyword: gd
+    snippet: git diff
   - name: git status
     keyword: gs
     snippet: git status --short --branch
+  - name: git push
+    keyword: gp
+    snippet: git push
   - name: change directry fzf
     keyword: cs
     snippet: cd $(fd --type d | sk)
@@ -29,3 +50,18 @@ snippets:
   - name: lazydocjer
     keyword: ld
     snippet: sudo lazydocker
+  - name: list
+    keyword: ls
+    snippet: eza --icons --git
+  - name: list
+    keyword: la
+    snippet: eza -a --icons --git
+  - name: list list all
+    keyword: ll
+    snippet: eza -l --icons --git
+  - name: list tree
+    keyword: lt
+    snippet: exa -T -L 3 -a -I "node_modules|.git|.cache" --icons
+  - name: list tree list
+    keyword: ltl
+    snippet: exa -T -L 3 -a -I "node_modules|.git|.cache" --icons

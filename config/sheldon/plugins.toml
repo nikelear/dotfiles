@@ -1,15 +1,7 @@
-
 shell = "zsh"
 
 [templates]
 defer = "{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks?.post | nl }}"
-
-[plugins]
-
-# For example:
-#
-# [plugins.base16]
-# github = "chriskempson/base16-shell"
 
 [plugins.zsh-defer]
 github = "romkatv/zsh-defer"
@@ -17,18 +9,15 @@ github = "romkatv/zsh-defer"
 [plugins.zeno]
 github = 'yuki-yano/zeno.zsh'
 use = ['zeno.zsh']
+hooks.pre = 'zsh-defer command -v deno &> /dev/null && source $ZDOTDIR/conf.d/zeno/atinit.zsh'
+hooks.post = 'zsh-defer command -v deno &> /dev/null && source $ZDOTDIR/conf.d/zeno/atload.zsh'
 apply = ["defer"]
-hooks.pre = 'zsh-defer source $ZDOTDIR/conf.d/zeno/atinit.zsh'
-hooks.post = 'zsh-defer source $ZDOTDIR/conf.d/zeno/atload.zsh'
 
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
 use = ['{{ name }}.zsh']
 apply = ["defer"]
 
-# [plugins.zsh-syntax-highlighting]
-# github = "zsh-users/zsh-syntax-highlighting"
-# apply = ["defer"]
 [plugins.fast-syntax-highlighting]
 github = "zdharma-continuum/fast-syntax-highlighting"
 apply = ["defer"]
