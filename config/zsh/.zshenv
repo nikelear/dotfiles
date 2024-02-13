@@ -15,8 +15,8 @@ export EDITOR=$(command -v nvim ||command -v vim)
 export VIMINIT=":source ${XDG_CONFIG_HOME}/nvim/init.vim"
 
 # fzf
-export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
-export FZF_DEFAULT_OPTS="--height=60% --reverse --preview 'head -100 {}'"
+# export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+# export FZF_DEFAULT_OPTS="--height=60% --reverse --preview 'head -100 {}'"
 
 # npm
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
