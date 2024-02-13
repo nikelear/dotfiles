@@ -2,10 +2,17 @@
 
 # symbolic links
 DIR=$(dirname $(cd $(dirname $0) && pwd))
-ln -snf "${DIR}/config/bash/.bash_profile" "${HOME}/.bash_profile"
-ln -snf "${DIR}/config/bash/.bashrc" "${HOME}/.bashrc"
-ln -snf "${DIR}/config/zsh/.zshenv" "${HOME}/.zshenv"
-ln -snf "${DIR}/config" "${HOME}/.config"
+slink () {
+  if [ -e $2 ]; then
+    mkdir -p "${HOME}/bkup"
+    mv $2 "${HOME}/bkup/"$(basename $2)
+  fi
+  ln -snf $1 $2
+}
+slink "${DIR}/config" "${HOME}/.config"
+slink "${DIR}/config/bash/.bash_profile" "${HOME}/.bash_profile"
+slink "${DIR}/config/bash/.bashrc" "${HOME}/.bashrc"
+slink "${DIR}/config/zsh/.zshenv" "${HOME}/.zshenv"
 
 # wsl settings
 if [ -d /mnt/c ]; then
@@ -25,9 +32,7 @@ if [ -d /mnt/c ]; then
 
   # link vscode
   if [ ! -L /usr/local/bin/code ]; then
-    cd /mnt/c
-    userprofile=$(cmd /C echo %USERPROFILE% | tr -d '\r')
-    cd
+    userprofile=$(cd /mnt/c && cmd /C echo %USERPROFILE% | tr -d '\r')
     fd=$(echo "$userprofile" | awk -F'\\' '{print $NF}')
     code="/mnt/c/Users/$fd/AppData/Local/Programs/Microsoft VS Code/bin/code"
     sudo ln -s "$code" "/usr/local/bin/code"
