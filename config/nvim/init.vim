@@ -39,6 +39,10 @@ endfor
 nnoremap <C-n> :Fern . -reveal=% -drawer -toggle -width=40<CR>
 let g:fern#renderer = 'nerdfont'
 
+" viminfo
+let $XDG_CACHE_HOME = empty($XDG_CACHE_HOME) ? $HOME.'/.cache' : $XDG_CACHE_HOME
+set viminfo+=n$XDG_CACHE_HOME.'/viminfo'
+
 syntax on
 set number
 set relativenumber

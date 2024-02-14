@@ -29,7 +29,7 @@ export NODE_REPL_HISTORY="${XDG_STATE_HOME}/node_history"
 
 # zsh
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
-export HISTFILE="${ZDOTDIR}/.zsh-history"
+export HISTFILE="${ZDOTDIR}/.zsh_history"
 export HISTSIZE=100000
 export SAVEHIST=1000000
 
