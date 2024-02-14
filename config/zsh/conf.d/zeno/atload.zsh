@@ -1,4 +1,4 @@
-if [[ ":$PATH:" = *":${DENO_INSTALL}/bin:"* ]]; then
+if command -v deno &> /dev/null; then
   bindkey ' '  zeno-auto-snippet
 
   # fallback if snippet not matched (default: self-insert)
