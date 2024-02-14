@@ -25,7 +25,7 @@ export GOPATH="${XDG_DATA_HOME}/go"
 
 # deno
 export DENO_INSTALL="${XDG_DATA_HOME}/.deno"
-export DENO_CERT="/etc/ssl/certs/ca-certificates.crt"
+# export DENO_CERT="/etc/ssl/certs/ca-certificates.crt"
 
 # node
 export NODE_REPL_HISTORY="${XDG_STATE_HOME}/node_history"
