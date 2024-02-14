@@ -17,6 +17,9 @@ snippets:
   - name: git add
     keyword: ga
     snippet: git add
+  - name: git add -p
+    keyword: gap
+    snippet: git add -p
   - name: git commit message
     keyword: gcm
     snippet: git commit -m '{{commit_message}}'
@@ -26,9 +29,18 @@ snippets:
   - name: git status
     keyword: gs
     snippet: git status --short --branch
+  - name: git fetch & merge
+    keyword: gfm
+    snippet: git fetch && git merge
   - name: git push
     keyword: gp
     snippet: git push
+  - name: zypper install
+    keyword: zi
+    snippet: sudo zypper install
+  - name: zypper remove
+    keyword: zr
+    snippet: sudo zypper remove
   - name: change directry fzf
     keyword: cs
     snippet: cd $(fd --type d | sk)
@@ -44,12 +56,6 @@ snippets:
   - name: profiling
     keyword: hpf
     snippet: hyperfine -w 5 -r 50 'zsh -i -c exit'
-  - name: lazygit
-    keyword: lg
-    snippet: lazygit
-  - name: lazydocjer
-    keyword: ld
-    snippet: sudo lazydocker
   - name: list
     keyword: ls
     snippet: eza --icons --git
