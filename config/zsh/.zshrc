@@ -35,7 +35,7 @@ load_settings starship "starship.toml" "starship init zsh"
 unset cache_dir config_dir
 
 # setting files
-ZSH_DIR="${HOME}/.config/zsh/rc"
+ZSH_DIR="${ZDOTDIR}/rc"
 if [ -d $ZSH_DIR ] && [ -r $ZSH_DIR ] && [ -x $ZSH_DIR ]; then
   for file in ${ZSH_DIR}/**/*.zsh; do
     [ -r $file ] && source $file
