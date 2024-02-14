@@ -8,6 +8,10 @@ $ENV:XDG_CACHE_HOME="${HOME}\.cache"
 $ENV:XDG_DATA_HOME="${HOME}\.local\share"
 $ENV:XDG_STATE_HOME="${HOME}\.local\state"
 
+# vim
+$SHOME="${HOME}" -replace '\\', '/'
+$ENV:VIMINIT=":source ${SHOME}/.config/nvim/init.vim"
+
 # fzf
 $ENV:FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 

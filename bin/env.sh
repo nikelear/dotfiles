@@ -14,10 +14,6 @@ if confirm_execution "rustup"; then
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
 
-if confirm_execution "deno"; then
-    curl -fsSL https://deno.land/install.sh | sh
-fi
-
 if confirm_execution "mise"; then
     curl https://mise.run | sh
 fi
