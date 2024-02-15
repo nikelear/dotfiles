@@ -67,7 +67,7 @@ snippets:
     snippet: eza -l --icons --git
   - name: list tree
     keyword: lt
-    snippet: exa -T -L 3 -a -I "node_modules|.git|.cache" --icons
+    snippet: eza -T -L 3 -a -I "node_modules|.git|.cache" --icons
   - name: list tree list
     keyword: ltl
-    snippet: exa -T -L 3 -a -I "node_modules|.git|.cache" --icons
+    snippet: eza -T -L 3 -a -I "node_modules|.git|.cache" --icons

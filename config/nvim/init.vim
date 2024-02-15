@@ -1,4 +1,5 @@
-let s:jetpackdir = substitute($XDG_DATA_HOME, '\\', '/', 'g') .. '/vim'
+let s:xdgdata = empty($XDG_DATA_HOME) ? $HOME .. '/.local/share' : $XDG_DATA_HOME
+let s:jetpackdir = substitute(s:xdgdata, '\\', '/', 'g') .. '/vim'
 let s:jetpackfile = s:jetpackdir .. '/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim'
 let s:jetpackurl = 'https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim'
 if !filereadable(s:jetpackfile)
@@ -38,10 +39,6 @@ endfor
 
 nnoremap <C-n> :Fern . -reveal=% -drawer -toggle -width=40<CR>
 let g:fern#renderer = 'nerdfont'
-
-" viminfo
-let $XDG_CACHE_HOME = empty($XDG_CACHE_HOME) ? $HOME.'/.cache' : $XDG_CACHE_HOME
-set viminfo+=n$XDG_CACHE_HOME.'/viminfo'
 
 syntax on
 set number
