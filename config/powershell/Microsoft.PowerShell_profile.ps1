@@ -9,7 +9,7 @@ $ENV:XDG_DATA_HOME="${HOME}\.local\share"
 $ENV:XDG_STATE_HOME="${HOME}\.local\state"
 
 # vim
-$ENV:VIMINIT=":source ${XDG_CONFIG_HOME}/nvim/init.vim"
+$ENV:VIMINIT=":source C:/Users/yseki.DKR/.config/nvim/init.vim"
 
 # fzf
 $ENV:FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
@@ -40,5 +40,6 @@ Set-PSReadLineKeyHandler -Chord Ctrl+g -ScriptBlock {
     fzf_cd_ghq
     [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
 }
+
 
 Invoke-Expression (&starship init powershell)
