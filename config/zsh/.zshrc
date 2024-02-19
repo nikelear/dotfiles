@@ -1,33 +1,45 @@
 # add path
 path=(
-  "${HOME}/.cargo/bin"(N-/)
-  "${DENO_INSTALL}/bin"(N-/)
-  "${GOPATH}/bin"(N-/)
   "$path[@]"
 )
 path=("${(@u)path}")
 
+cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}"
+config_dir="${XDG_CONFIG_HOME:-$HOME/.config}"
+load_settings () {
+  local target=$1
+  local config="${config_dir}/${2}"
+  local command=${3}
+  local cache="${cache_dir}/$target.zsh"
+
+  if command -v $target &> /dev/null; then
+    if [[ ! -r "$cache" || "$config" -nt "$cache" ]]; then
+      mkdir -p $cache_dir
+      eval $command > "$cache"
+    fi
+    source "${cache}"
+  fi
+}
+
+# runtime manager
+load_settings mise "mise/config.toml" "mise activate zsh"
+
 # plugin
-command -v sheldon &> /dev/null && eval "$(sheldon source)"
+load_settings sheldon "sheldon/plugins.toml" "sheldon source"
 
 # prompt
 PROMPT='%F{green}%n%f%F{red}@%m%f %~ '$'\n$ '
 RPROMPT="%T"
-command -v starship &> /dev/null && eval "$(starship init zsh)"
+load_settings starship "starship.toml" "starship init zsh"
 
-# # setting files
-# ZSH_DIR="${HOME}/.config/zsh/rc"
-# if [ -d $ZSH_DIR ] && [ -r $ZSH_DIR ] && [ -x $ZSH_DIR ]; then
-#   for file in ${ZSH_DIR}/**/*.zsh; do
-#     [ -r $file ] && source $file
-#   done
-# fi
+unset cache_dir config_dir
 
-if [ -e "${HOME}/.local/bin/mise" ]; then
-  if [ ! -e "${HOME}/.cache/mise.zsh" ]; then
-    echo "$(${HOME}/.local/bin/mise activate zsh)" > "${HOME}/.cache/mise.zsh"
-  fi
-  source "${HOME}/.cache/mise.zsh"
+# setting files
+ZSH_DIR="${ZDOTDIR}/rc"
+if [ -d $ZSH_DIR ] && [ -r $ZSH_DIR ] && [ -x $ZSH_DIR ]; then
+  for file in ${ZSH_DIR}/**/*.zsh; do
+    [ -r $file ] && source $file
+  done
 fi
 
 # profiling

@@ -94,11 +94,11 @@ setopt inc_append_history
 # ヒストリを呼び出してから実行する間に一旦編集できる状態になる
 setopt hist_verify
 
-# # 自動補完を有効にする
-# if command -v zsh-defer &> /dev/null; then
-#     zsh-defer autoload -Uz compinit
-#     zsh-defer compinit
-# else
-#     autoload -Uz compinit
-#     compinit
-# fi
+# 自動補完を有効にする
+if command -v zsh-defer &> /dev/null; then
+    zsh-defer autoload -Uz compinit
+    zsh-defer compinit
+else
+    autoload -Uz compinit
+    compinit
+fi

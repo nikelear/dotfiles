@@ -1,4 +1,5 @@
-let s:jetpackdir = $XDG_DATA_HOME .. '/vim'
+let s:xdgdata = empty($XDG_DATA_HOME) ? $HOME .. '/.local/share' : $XDG_DATA_HOME
+let s:jetpackdir = substitute(s:xdgdata, '\\', '/', 'g') .. '/vim'
 let s:jetpackfile = s:jetpackdir .. '/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim'
 let s:jetpackurl = 'https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim'
 if !filereadable(s:jetpackfile)
