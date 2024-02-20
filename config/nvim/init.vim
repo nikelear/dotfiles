@@ -1,3 +1,6 @@
+set runtimepath^=$HOME/.config/nvim
+set viminfo+=n$HOME/.config/nvim/viminfo
+
 let s:xdgdata = empty($XDG_DATA_HOME) ? $HOME .. '/.local/share' : $XDG_DATA_HOME
 let s:jetpackdir = substitute(s:xdgdata, '\\', '/', 'g') .. '/vim'
 let s:jetpackfile = s:jetpackdir .. '/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim'

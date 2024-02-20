@@ -43,3 +43,6 @@ Set-PSReadLineKeyHandler -Chord Ctrl+g -ScriptBlock {
 }
 
 Invoke-Expression (&starship init powershell)
+
+$LOCALCONF="$HOME\Documents\PowerShell\local.ps1"
+if ( Test-Path $LOCALCONF ) { . $LOCALCONF } else { echo "boke" }
