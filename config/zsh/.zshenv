@@ -1,3 +1,8 @@
+# add path
+path=(
+  "${HOME}/.local/bin"(N-/)
+  "$path[@]"
+)
 # shell-boot profile
 # zmodload zsh/zprof
 
@@ -20,9 +25,6 @@ export FZF_DEFAULT_OPTS="--height=60% --reverse --preview 'head -100 {}'"
 
 # npm
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
-
-# go
-export GOPATH="${XDG_DATA_HOME}/go"
 
 # node
 export NODE_REPL_HISTORY="${XDG_STATE_HOME}/node_history"

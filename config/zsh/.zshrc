@@ -1,10 +1,3 @@
-# add path
-path=(
-  "${HOME}/.local/bin"(N-/)
-  "$path[@]"
-)
-path=("${(@u)path}")
-
 cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}"
 config_dir="${XDG_CONFIG_HOME:-$HOME/.config}"
 load_settings () {
