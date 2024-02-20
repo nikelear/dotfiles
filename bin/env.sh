@@ -12,4 +12,5 @@ confirm_execution() {
 
 if confirm_execution "mise"; then
     curl https://mise.run | sh
+    $HOME/.local/bin/mise install
 fi

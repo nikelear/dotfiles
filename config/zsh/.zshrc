@@ -1,5 +1,6 @@
 # add path
 path=(
+  "${HOME}/.local/bin"(N-/)
   "$path[@]"
 )
 path=("${(@u)path}")
