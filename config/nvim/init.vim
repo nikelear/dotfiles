@@ -63,7 +63,7 @@ set smartindent
 set visualbell
 set showmatch
 set wildmode=list:longest
-
+set termguicolors
 set hlsearch
 set wrapscan
 set ignorecase
