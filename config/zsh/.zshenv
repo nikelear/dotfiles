@@ -1,10 +1,11 @@
+# shell-boot profile
+# zmodload zsh/zprof
+
 # add path
 path=(
   "${HOME}/.local/bin"(N-/)
   "$path[@]"
 )
-# shell-boot profile
-# zmodload zsh/zprof
 
 # installer-connect
 export RSYNC_RSH=ssh
