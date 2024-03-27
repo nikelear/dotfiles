@@ -1,5 +1,11 @@
 #!/usr/bin/env sh
 
+# for git bash
+if [ ! -z "${MSYS}" ] && [[ ! "${MSYS}" == *"winsymlinks:nativestrict"* ]]; then
+  export MSYS="${MSYS} winsymlinks:nativestrict"
+  mkdir -p "${HOME}/.config"
+fi
+
 # symbolic links
 DIR=$(dirname $(cd $(dirname $0) && pwd))
 slink () {
@@ -9,13 +15,18 @@ slink () {
   fi
   ln -snf $1 $2
 }
-slink "${DIR}/config" "${HOME}/.config"
-slink "${DIR}/config/bash/.bash_profile" "${HOME}/.bash_profile"
-slink "${DIR}/config/bash/.bashrc" "${HOME}/.bashrc"
-slink "${DIR}/config/zsh/.zshenv" "${HOME}/.zshenv"
+if [ "${DIR}" != "/usr" ]; then
+  slink "${DIR}/vim" "${HOME}/.vim"
+  slink "${DIR}/config" "${HOME}/.config"
+  slink "${DIR}/config/bash/.bash_profile" "${HOME}/.bash_profile"
+  slink "${DIR}/config/bash/.bashrc" "${HOME}/.bashrc"
+  slink "${DIR}/config/zsh/.zshenv" "${HOME}/.zshenv"
+else
+  echo "Run directly,please"
+fi
 
-# wsl settings
-if [ -d /mnt/c ]; then
+# for wsl
+if [ -d /mnt/c/windows ]; then
 
   # link cmd
   if [ ! -L /usr/local/bin/cmd ]; then
