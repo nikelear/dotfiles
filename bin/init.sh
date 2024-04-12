@@ -15,7 +15,8 @@ slink () {
   fi
   ln -snf $1 $2
 }
-if [ "${DIR}" != "/usr" ]; then
+
+if [ "${DIR}" != "/usr" ] && [ "${DIR}" != "/" ]; then
   slink "${DIR}/vim" "${HOME}/.vim"
   slink "${DIR}/config" "${HOME}/.config"
   slink "${DIR}/config/bash/.bash_profile" "${HOME}/.bash_profile"

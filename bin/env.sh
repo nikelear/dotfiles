@@ -10,6 +10,10 @@ confirm_execution() {
     fi
 }
 
+if confirm_execution "brew"; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
 if confirm_execution "mise"; then
     curl https://mise.run | sh
     $HOME/.local/bin/mise install

@@ -36,6 +36,8 @@ export HISTFILE="${ZDOTDIR}/.zsh_history"
 export HISTSIZE=100000
 export SAVEHIST=1000000
 
+[ -d /home/linuxbrew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 [ -e "${HOME}/local.zshenv" ] && . "${HOME}/local.zshenv"
 
 # zsh -xvic 'exit' &> ~/zsh_startup_log.txt

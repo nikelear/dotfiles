@@ -10,4 +10,3 @@ alias vf='vifm'
 
 # tmux
 alias t='tmux attach || tmux'
-
