@@ -10,6 +10,9 @@ path=(
 # installer-connect
 export RSYNC_RSH=ssh
 
+# ubuntu
+export skip_global_compinit=1
+
 # XDG
 export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_CACHE_HOME="${HOME}/.cache"
@@ -18,7 +21,6 @@ export XDG_STATE_HOME="${HOME}/.local/state"
 
 # autorun-editor
 export EDITOR=$(command -v nvim ||command -v vim)
-export VIMINIT=":source ${XDG_CONFIG_HOME}/nvim/init.vim"
 
 # fzf
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
@@ -36,8 +38,12 @@ export HISTFILE="${ZDOTDIR}/.zsh_history"
 export HISTSIZE=100000
 export SAVEHIST=1000000
 
-[ -d /home/linuxbrew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
+if [ -d /home/linuxbrew ]; then
+  if [ ! -e $HOME/.cache/brew.sh ]; then
+    echo "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" > $HOME/.cache/brew.sh
+  fi
+  source $HOME/.cache/brew.sh
+fi
 [ -e "${HOME}/local.zshenv" ] && . "${HOME}/local.zshenv"
 
-# zsh -xvic 'exit' &> ~/zsh_startup_log.txt
+# zsh -xvic 'exit' &> ~/zsh_startup_log

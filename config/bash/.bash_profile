@@ -7,5 +7,8 @@ if [ -n "$BASH_VERSION" ]; then
 	. "$HOME/.bashrc"
     fi
 fi
-export HISTFILE=~/.local/share/bash_history
+[ -d /home/linuxbrew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+export HISTFILE="${HOME}/.cache/bash_history"
 export PATH="${HOME}/.local/bin:${PATH}"
+
+export BASHRC="$XDG_CONFIG_HOME/bash/.bashrc"
