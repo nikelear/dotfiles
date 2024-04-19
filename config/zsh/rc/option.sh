@@ -1,10 +1,11 @@
+
+bindkey -v
+
 # cdした際のディレクトリをディレクトリスタックへ自動追加
 setopt auto_pushd
 
 # ディレクトリスタックへの追加の際に重複させない
 setopt pushd_ignore_dups
-
-bindkey -v
 
 # フローコントロールを無効にする
 setopt no_flow_control
@@ -94,6 +95,8 @@ setopt inc_append_history
 # ヒストリを呼び出してから実行する間に一旦編集できる状態になる
 setopt hist_verify
 
+setopt PROMPT_SUBST
+
 # 自動補完を有効にする
 if command -v zsh-defer &> /dev/null; then
     zsh-defer autoload -Uz compinit
@@ -102,3 +105,9 @@ else
     autoload -Uz compinit
     compinit
 fi
+
+autoload history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^p" history-beginning-search-backward-end
+bindkey "^n" history-beginning-search-forward-end
