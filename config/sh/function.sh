@@ -78,7 +78,11 @@ __prompt_git() {
       state="${state}\$"
     fi
 
-    echo " [$branchname] ($state) "
+    if [ ! -z $state ]; then
+      state=" ($state) "
+    fi
+
+    echo "[$branchname]$state"
 	else
 		return
 	fi
