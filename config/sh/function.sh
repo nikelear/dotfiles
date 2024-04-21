@@ -23,69 +23,29 @@ __load_command () {
 }
 
 __prompt_git() {
-	local branchName=''
 
-	# check in worktree
-	if [ $(git rev-parse --is-inside-work-tree &>/dev/null; echo $?) -eq '0' ]; then
+  local branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
+  if [[ -z "$branch" ]]; then
+    return 0
+  fi
 
-		# # fetch branch name or hash
-		# branchName="$(git symbolic-ref --quiet --short HEAD 2> /dev/null || \
-		# 	git rev-parse --short HEAD 2> /dev/null || \
-		# 	echo '(unknown)')"
+  local marks=""
+  local gst="$(git status --porcelain --branch)"
 
-		# echo -e " (${branchName}) "
-    local branchname=$(git symbolic-ref --short HEAD 2> /dev/null)
-    if [ -z $branchname ]; then
-      return
-    fi
-    local st=$(git status 2> /dev/null)
-    local state=""
-    local git_status=$(git status 2>/dev/null)
-    
-    if echo "$git_status" | grep -q "diverged"; then
-      state="${state}<>"
-    elif echo "$git_status" | grep -q "ahead"; then
-      state="${state}^"
-    elif echo "$git_status" | grep -q "behind"; then
-      state="${state}v"
-    fi
-    
-    if echo "$git_status" | grep -q "Unmerged paths"; then
-      state="${state}="
-    fi
-    
-    if echo "$git_status" | grep -q "Untracked files"; then
-      state="${state}?"
-    fi
-    
-    if echo "$git_status" | grep -q "Changes to be committed"; then
-      state="${state}+"
-    fi
-    
-    if echo "$git_status" | grep -q "Changes not staged for commit"; then
-      state="${state}!"
-    fi
-    
-    if echo "$git_status" | grep -q "renamed:"; then
-      state="${state}>>"
-    fi
-    
-    if echo "$git_status" | grep -q "deleted:"; then
-      state="${state}x"
-    fi
-    
-    if [ ! -z "$(git stash list)" ]; then
-      state="${state}\$"
-    fi
+  [[ $gst =~ "behind" ]] && marks+="<"
+  [[ $gst =~ "ahead" ]] && marks+=">"
+  [[ $gst =~ "\?\?" ]] && marks+="?"
+  [[ $gst =~ "M[ MTD] " ]] && marks+="+"
+  [[ $gst =~ "[ MTARC]M " ]] && marks+="!"
+  [[ $gst =~ "R[ MTD] " ]] && marks+="»"
+  [[ $gst =~ "[ MTARC]D " ]] && marks+="x"
+  [[ $gst =~ "UU " ]] && marks+="="
+  
+#  [[ $(git stash list) ]] && marks+="$"
 
-    if [ ! -z $state ]; then
-      state=" ($state) "
-    fi
-
-    echo "[$branchname]$state"
-	else
-		return
-	fi
+  [[ -z $marks ]] || marks="[$marks]"
+  
+  echo " ($branch) $marks "
 }
 
 
