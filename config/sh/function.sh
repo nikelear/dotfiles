@@ -24,14 +24,19 @@ __load_command () {
 
 __prompt_git() {
 
-  local branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
-  if [[ -z "$branch" ]]; then
-    return 0
-  fi
+  local gst="$(git status --porcelain --branch 2> /dev/null)"
+  [[ -z $gst ]] && return 0
+
+  local branch=""
+  while IFS= read -r line;do
+    if [[ "$line" =~ "^## " ]]; then
+      branch="${line%%...*}"
+      branch="${branch##"## "}"
+      break
+    fi
+  done <<< "$gst"
 
   local marks=""
-  local gst="$(git status --porcelain --branch)"
-
   [[ $gst =~ "behind" ]] && marks+="<"
   [[ $gst =~ "ahead" ]] && marks+=">"
   [[ $gst =~ "\?\?" ]] && marks+="?"
@@ -41,7 +46,7 @@ __prompt_git() {
   [[ $gst =~ "[ MTARC]D " ]] && marks+="x"
   [[ $gst =~ "UU " ]] && marks+="="
   
-#  [[ $(git stash list) ]] && marks+="$"
+  [[ $(git stash list) ]] && marks+="$"
 
   [[ -z $marks ]] || marks="[$marks]"
   
