@@ -29,7 +29,7 @@ __prompt_git() {
 
   local branch=""
   while IFS= read -r line;do
-    if [[ "$line" =~ "^## " ]]; then
+    if [[ "$line" =~ "## " ]]; then
       branch="${line%%...*}"
       branch="${branch##"## "}"
       break
