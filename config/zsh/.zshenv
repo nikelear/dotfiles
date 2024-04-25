@@ -20,6 +20,9 @@ export HISTFILE="${ZDOTDIR}/.zsh_history"
 export HISTSIZE=100000
 export SAVEHIST=1000000
 
+# abbr
+export ABBR_SET_EXPANSION_CURSOR=1
+export ABBR_SET_LINE_CURSOR=1
 
 [ -e "${HOME}/local.zshenv" ] && . "${HOME}/local.zshenv"
 
