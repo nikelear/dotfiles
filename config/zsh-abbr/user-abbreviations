@@ -1,0 +1,7 @@
+abbr "cp"="cp -i"
+abbr "mv"="mv -i"
+abbr "rm"="rm -i"
+abbr "l"="eza"
+abbr "ll"="eza -l"
+abbr "la"="eza -a"
+abbr "lla"="eza -la"

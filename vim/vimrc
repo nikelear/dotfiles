@@ -1,3 +1,5 @@
+:set viminfo+=n~/.vim/viminfo
+:set directory=~/.cache
 nnoremap j gj
 nnoremap k gk
 syntax enable
