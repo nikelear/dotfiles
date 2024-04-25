@@ -14,4 +14,4 @@ fi
 
 source "${XDG_DATA_HOME}/zsh-abbr/zsh-abbr.zsh"
 source "${XDG_DATA_HOME}/fzf-tab-completion/zsh/fzf-zsh-completion.sh"
-bindkey '^I' fzf_completion
+
