@@ -3,7 +3,7 @@
 
 # add path
 path=(
-  "${HOME}/.local/bin"(N-/)
+  "${HOME}/.local/share/bin"(N-/)
   "$path[@]"
 )
 

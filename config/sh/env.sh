@@ -23,8 +23,8 @@ export DOCKER_CONFIG="${XDG_DATA_HOME}/docker"
 export skip_global_compinit=1
 
 if [ -d /home/linuxbrew ]; then
-  if [ ! -e $HOME/.cache/brew.sh ]; then
-    echo "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" > $HOME/.cache/brew.sh
+  if [ ! -f "$XDG_CACHE_HOME/brew.sh" ]; then
+    echo "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" > $XDG_CACHE_HOME/brew.sh
   fi
-  source $HOME/.cache/brew.sh
+  source $XDG_CACHE_HOME/brew.sh
 fi
