@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# コマンドライン引数から色コードを取得
+if [ $# -eq 0 ]; then
+  echo "Usage: $0 <color_code>"
+  exit 1
+fi
+
+color_code=$1
+
+# 色コードをRGB値に変換
+red=$((color_code & 0xFF))
+green=$(((color_code >> 8) & 0xFF))
+blue=$(((color_code >> 16) & 0xFF))
+
+# RGB値を出力
+echo "RGB($red,$green,$blue)"
+
+# RGB値を16進数形式に変換
+hex_red=$(printf "%02X" $red)
+hex_green=$(printf "%02X" $green)
+hex_blue=$(printf "%02X" $blue)
+
+# #FFFFFF形式で出力
+echo "#$hex_red$hex_green$hex_blue"

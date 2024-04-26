@@ -4,13 +4,14 @@
 # add path
 path=(
   "${HOME}/.local/share/bin"(N-/)
+  "${HOME}/dotfiles/bin"
   "$path[@]"
 )
 
 # load common env
 source $HOME/.config/sh/env.sh
 
-# # fzf
+# fzf
 # export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 # export FZF_DEFAULT_OPTS="--height=60% --reverse --preview 'head -100 {}'"
 

@@ -27,4 +27,5 @@ if [ -d /home/linuxbrew ]; then
     echo "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" > $XDG_CACHE_HOME/brew.sh
   fi
   source $XDG_CACHE_HOME/brew.sh
+  export HOMEBREW_NO_AUTO_UPDATE=1
 fi
