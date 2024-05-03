@@ -11,10 +11,6 @@ path=(
 # load common env
 source $HOME/.config/sh/env.sh
 
-# fzf
-# export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
-# export FZF_DEFAULT_OPTS="--height=60% --reverse --preview 'head -100 {}'"
-
 # zsh
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 export HISTFILE="${ZDOTDIR}/.zsh_history"

@@ -17,10 +17,7 @@ slink () {
 }
 
 if [ "${DIR}" != "/usr" ] && [ "${DIR}" != "/" ]; then
-  slink "${DIR}/vim" "${HOME}/.vim"
   slink "${DIR}/config" "${HOME}/.config"
-  slink "${DIR}/config/bash/.bash_profile" "${HOME}/.bash_profile"
-  slink "${DIR}/config/bash/.bashrc" "${HOME}/.bashrc"
   slink "${DIR}/config/zsh/.zshenv" "${HOME}/.zshenv"
 else
   echo "Run directly,please"

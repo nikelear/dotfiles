@@ -19,6 +19,10 @@ export NODE_REPL_HISTORY="${XDG_STATE_HOME}/node_history"
 # docker
 export DOCKER_CONFIG="${XDG_DATA_HOME}/docker"
 
+# fzf
+# export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_OPTS='--bind=tab:down,shift-tab:up --cycle'
+
 # ubuntu
 export skip_global_compinit=1
 
