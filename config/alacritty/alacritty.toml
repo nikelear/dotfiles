@@ -1,0 +1,13 @@
+import = [
+"~/dotfiles/config/alacritty/local.toml",
+]
+
+[window]
+dimensions = { columns = 150, lines = 40 }
+padding = { x = 3, y = 3 }
+dynamic_padding = true
+opacity = 0.9
+
+[font]
+size = 11
+normal = { family = "UDEV Gothic 35NFLG" , style = "Regular" }

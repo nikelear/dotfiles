@@ -11,24 +11,6 @@
             }
         },
         {
-            "command": "paste"
-        },
-        {
-            "command": 
-            {
-                "action": "splitPane",
-                "split": "auto",
-                "splitMode": "duplicate"
-            }
-        },
-        {
-            "command": "find"
-        },
-        {
-            "command": "markMode",
-            "keys": "ctrl+shift+m"
-        },
-        {
             "command": "unbound",
             "keys": "ctrl+c"
         },
@@ -115,6 +97,24 @@
         {
             "command": "unbound",
             "keys": "ctrl+alt+m"
+        },
+        {
+            "command": "paste"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            }
+        },
+        {
+            "command": "find"
+        },
+        {
+            "command": "markMode",
+            "keys": "ctrl+shift+m"
         }
     ],
     "copyFormatting": "none",
@@ -133,7 +133,7 @@
         {
             "font": 
             {
-                "face": "UDEV Gothic NFLG",
+                "face": "UDEV Gothic 35NFLG",
                 "size": 12.0
             },
             "opacity": 85,
@@ -185,19 +185,24 @@
                 "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
             },
             {
-                "commandline": "wsl -e sh -c \"tmux attach || tmux\"",
+                "commandline": "wsl",
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
                 "hidden": false,
-                "name": "Linux",
+                "name": "WSL",
                 "source": "Windows.Terminal.Wsl"
             },
             {
-                "colorScheme": "Campbell",
-                "commandline": "wsl",
-                "guid": "{5494248f-0e45-4d91-bf9b-15df69019cfa}",
+                "commandline": "C:/msys64/usr/bin/zsh.exe --login",
+                "environment": 
+                {
+                    "HOME": "%USERPROFILE%",
+                    "MSYS": "winsymlinks:nativestrict",
+                    "MSYS2_PATH_TYPE": "inherit",
+                    "MSYSTEM": "MINGW64"
+                },
+                "guid": "{6079aa0a-138a-4513-b98b-34fcf1c8594e}",
                 "hidden": false,
-                "icon": "ms-appx:///ProfileIcons/{9acb9455-ca41-5af7-950f-6bca1bc9722f}.png",
-                "name": "Linux(not tmux)",
+                "name": "MSYS2",
                 "startingDirectory": "~"
             }
         ]
@@ -387,6 +392,29 @@
             "selectionBackground": "#FFFFFF",
             "white": "#D3D7CF",
             "yellow": "#C4A000"
+        },
+        {
+            "background": "#300A24",
+            "black": "#171421",
+            "blue": "#0037DA",
+            "brightBlack": "#767676",
+            "brightBlue": "#08458F",
+            "brightCyan": "#2C9FB3",
+            "brightGreen": "#26A269",
+            "brightPurple": "#A347BA",
+            "brightRed": "#C01C28",
+            "brightWhite": "#F2F2F2",
+            "brightYellow": "#A2734C",
+            "cursorColor": "#FFFFFF",
+            "cyan": "#3A96DD",
+            "foreground": "#FFFFFF",
+            "green": "#26A269",
+            "name": "Ubuntu-24.04-ColorScheme",
+            "purple": "#881798",
+            "red": "#C21A23",
+            "selectionBackground": "#FFFFFF",
+            "white": "#CCCCCC",
+            "yellow": "#A2734C"
         },
         {
             "background": "#300A24",
